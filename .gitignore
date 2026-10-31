@@ -1,0 +1,19 @@
+# API 키 및 환경 변수 파일 (유출 방지)
+.env
+*.local
+
+# 로그 및 임시 캐시
+*.log
+npm-debug.log*
+
+# OS 생성 파일
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 빌드 및 산출물 폴더
+build/
+dist/
+bin/
+obj/
+temp/
