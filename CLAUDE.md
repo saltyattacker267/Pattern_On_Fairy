@@ -1,17 +1,24 @@
 # Mobile Game Prototype Development Guidelines
 
-## 1. Core Principles
+## 1. AI Interaction & Control Rules (작업 통제 원칙)
+- **수정 전 계획 선보고 및 승인:** 대규모 로직 수정, 구조 변경, 파일 분할 시 코드를 즉시 작성하지 않는다. 수정 대상, 변경 계획, 기존 기능에 미칠 영향(Side-effect)을 2~3줄로 먼저 요약 보고하고, 사용자 승인 후 구현을 시작한다.
+- **최소 변경 원칙 (Minimal Change):** 명시적으로 수정을 요구하지 않은 기존 로직, 변수명, 주석을 임의로 리팩토링하거나 최적화하지 않는다. 요구한 변경 사항의 최소 단위만 적용한다.
+- **자의적 추론 금지 및 역질문:** 요구사항이 모호하거나 구조 충돌이 예상될 경우 스스로 가정하여 코드를 작성하지 않는다. 문제 지점을 명시하고 1~2가지 대안과 함께 사용자에게 먼저 질문한다.
+- **코드 생략 절대 금지:** `// 기존 코드 동일`, `// ... 생략` 등의 단축 주석을 사용하지 않는다. 수정이 적용된 함수나 블록은 완성된 전체 형태로 온전히 출력한다.
+- **버그 격리 수정:** 에러 발생 시 전체 코드를 재작성하지 않고 원인을 1줄로 먼저 분석한 뒤, 기존 정상 기능에 영향을 주지 않는 최소 범위 내에서 패치한다.
+
+## 2. Core Prototyping Principles
 - **Prototype First:** 불필요한 오버엔지니어링을 지양하고, 기획서에 명시된 핵심 메커니즘 검증을 최우선으로 구현한다.
-- **Incremental Changes:** 한 번에 광범위한 리팩터링을 진행하지 말 것. 단일 컴포넌트 단위로 변경 및 검증을 거친다.
-- **Code Preservation:** 기존에 구현된 정상 로직, 주석, 인터페이스를 임의로 생략하거나 축약하지 않는다.
+- **Incremental Changes:** 한 번에 광범위한 리팩터링을 진행하지 않는다. 단일 컴포넌트/기능 단위로 점진적으로 변경하고 검증을 거친다.
+- **Code Preservation:** 기존에 구현된 정상 작동 로직, 인터페이스 규격, 핵심 주석을 보존한다.
 
-## 2. Mobile Architecture & Optimization Rules
-- **GC Allocation Control:** Update/Tick 루프 및 프레임 단위 메서드 내부에서 동적 객체 생성(`new`), 문자열 연산(`+`), 무분별한 컬렉션 재할당을 금지한다.
-- **Object Pooling:** 빈번하게 생성/제거되는 엔티티(투사체, 피격 효과, 플로팅 텍스트 등)는 풀링 패턴을 적용한다.
-- **UI & Logic Decoupling:** 코어 게임 로직은 UI 요소를 직접 제어하지 않으며, 이벤트 또는 콜백을 통해서만 상태 변경을 전파한다.
-- **Data-Driven Balance:** 데미지, 속도, 쿨다운 등 밸런스 수치는 로직 내 하드코딩하지 않고 데이터 객체(JSON/Config)로 분리한다.
-- **Safe Area & Inputs:** 모바일 해상도 대응(Safe Area 패딩 고려) 및 고스트 터치/중복 입력 방지 처리를 기본 적용한다.
+## 3. Mobile Architecture & Optimization Rules
+- **GC Allocation Control:** Update/Tick 루프 및 프레임 단위 실행 메서드 내부에서 동적 객체 생성(`new`), 문자열 결합 연산(`+`), 무분별한 컬렉션 재할당을 엄격히 금지한다.
+- **Object Pooling:** 빈번하게 생성/제거되는 엔티티(투사체, 피격 효과, 플로팅 텍스트 등)는 반드시 오브젝트 풀링 패턴을 적용한다.
+- **UI & Logic Decoupling:** 코어 게임 로직은 UI 뷰 요소를 직접 제어하지 않으며, 이벤트 또는 콜백(Observer)을 통해서만 상태 변경을 전파한다.
+- **Data-Driven Balance:** 데미지, 이동 속도, 쿨다운 등 밸런스 파라미터는 로직 내에 하드코딩하지 않고 데이터 객체(Config/JSON)로 분리한다.
+- **Safe Area & Inputs:** 모바일 해상도 대응(Safe Area 패딩 처리) 및 고스트 터치/중복 터치 입력 방지 로직을 기본 적용한다.
 
-## 3. External Services & Asset Policy
-- **Gemini API:** 이미지 에셋 생성이 필요한 경우 `.env`의 `GEMINI_API_KEY`를 활용하는 스크립트를 거치도록 하며, API 키를 코드에 직접 노출하지 않는다.
-- **No Mock Libraries:** 프로젝트에 실제 설치되지 않은 가상 패키지나 검증되지 않은 외부 의존성을 임의로 추가하지 않는다.
+## 4. External Services & Asset Policy
+- **Gemini API:** 이미지 에셋 생성이 필요한 경우 `.env`의 `GEMINI_API_KEY`를 활용하는 전용 스크립트를 거치도록 하며, 소스 코드 내에 API 키를 직접 노출하지 않는다.
+- **No Mock Libraries:** 프로젝트에 실제 설치되지 않은 가상 패키지나 검증되지 않은 외부 의존성을 임의로 import/설치하지 않는다.
