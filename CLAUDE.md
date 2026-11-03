@@ -34,9 +34,10 @@
    - 에셋 생성 전 반드시 `docs/art_style_guide.md`를 먼저 읽고, 정의된 블록 조합 순서·캐릭터 시트·생성 작업 규칙에 따라 프롬프트를 작성한다.
 3. **브릿지 스크립트 실행 명령어**
    - 배경 등 일반 이미지:
-     `py -V:3.13 asset_bridge.py "<영문 프롬프트>" "assets/<파일명>.png"`
+     `py -V:3.13 asset_bridge.py "<영문 프롬프트>" "assets/<분류 폴더>/<파일명>.png"`
    - 몬스터, 노드, 아이콘 등 투명 배경(누끼)이 필요한 스프라이트:
-     `py -V:3.13 asset_bridge.py "<영문 프롬프트>, isolated on solid white background" "assets/<파일명>.png" --rembg`
+     `py -V:3.13 asset_bridge.py "<영문 프롬프트>, isolated on solid white background" "assets/<분류 폴더>/<파일명>.png" --rembg`
+   - 분류 폴더 및 파일명 규격은 `docs/art_style_guide.md` 3장을 따르며, 에셋 확정 시 `docs/art_prompts/`의 해당 체크리스트를 갱신한다.
    - 실행 환경은 Python 3.13 + `rembg[cpu]`가 필요하다. PC별로 Python 실행 경로가 다른 경우 `CLAUDE.local.md`에 지정된 경로를 우선 사용한다.
 4. **순차 실행 및 타임아웃 대기**
    - 이미지 N장이 필요할 경우 절대 병렬 실행하지 말고 **반드시 1장씩 순차적으로 실행**한다.
