@@ -13,53 +13,55 @@
 2. **스킬의 시각화:** 스킬 효과가 직업, 소품, 복장에서 바로 읽히도록 한다.
 3. **날개 종류 전원 상이:** 전투 화면은 3인 백뷰이므로 날개 형태와 머리/모자 실루엣만으로 식별 가능해야 한다.
 4. **등급 차등:** 5성은 4성보다 장식과 날개를 크고 화려하게 한다.
-5. **공통 요정 특징:** 전원 길고 뾰족한 요정 귀. 블라드는 박쥐형 막날개를 가진 다른 요정 종족이다.
+5. **공통 요정 특징:** 전원 길고 뾰족한 요정 귀. 카밀라는 박쥐형 막날개를 가진 다른 요정 종족이다.
+6. **성비:** 캐릭터 수집형 게임 특성을 고려하여 여성 9 : 남성 2 (남성: 바란, 레온).
+7. **망토 금지 (가이드 규칙 10):** 어깨/목에서 늘어지는 망토 대신 "등 처리" 칸의 방식으로 표현한다.
 
 ## 2. 동료 목록
 
-| 동료 (영문명) | 등급 | 색상 / 속성 | 성별 / 체형 | 직업 | 스킬 연결 | 날개 | 백뷰 식별 포인트 |
-|---|---|---|---|---|---|---|---|
-| 카엘 (`kael`) | 5성 | 보라 / 심연 | 남 / 날렵 | 그림자 암살자 | 즉사 = 암살, 첫 Miss 무효 = 그림자 회피 | 짙은 보라 나방 | 깊은 후드, 찢어진 망토 자락 |
-| 루미 (`lumi`) | 5성 | 황금 / 시간 | 여 / 작고 앳됨 | 시간술사 | 타이머 연장 = 모래시계 지팡이, 회중시계 | 톱니 문양 금빛 나비 | 양갈래 올림머리, 별 자수 망토 |
-| 베른 (`bern`) | 5성 | 진홍 / 화염 | 남 / 장년, 거구 | 화염 대장장이 | 추가 피해 = 벼려낸 무기, 치명타 = 망치 일격 | 불씨 무늬 진홍 잠자리 | 어깨에 멘 거대 망치, 가죽 앞치마 끈 |
-| 로제 (`rose`) | 4성 | 분홍 / 관통 | 여 / 늘씬 | 가시장미 궁수 | 관통 = 화살 | 장미 꽃잎형 나비 | 화살통, 높은 포니테일 |
-| 블라드 (`vlad`) | 4성 | 암적 / 흡혈 | 남 / 마른 장신 | 흡혈 귀족 | 흡혈, 회복 = 크리스털 잔 | 검붉은 박쥐형 막날개 | 높은 깃 망토, 막날개 |
-| 시안 (`cyan`) | 4성 | 하늘 / 질풍 | 여 / 가벼움 | 바람 항해사 | 판정 시간 = 순풍, 콤보 보존 = 나침반 | 길고 가는 하늘색 잠자리 | 삼각모, 휘날리는 긴 스카프 |
-| 바란 (`baran`) | 4성 | 강철 / 수호 | 남 / 장년, 최대 거구 | 성기사 | 기절, 1회 생존 = 수호의 방패 | 강철색 딱정벌레 겉날개 | 투구 장식, 거대 방패 |
-| 미라 (`mira`) | 4성 | 녹색 / 치유 | 여 / 단정 | 치유 사제 | 회복, 실드 = 약초와 잎사귀 지팡이 | 잎맥 녹색 날개 (나뭇잎벌레형) | 사제 베일, 땋은 머리 |
-| 제이드 (`jade`) | 4성 | 비취 / 충전 | 여 / 활발 | 음유시인 | 피버 충전 = 연주로 사기 고양 | 비취색 풀잠자리 | 깃털 꽂은 베레모, 등에 멘 류트 |
-| 레온 (`leon`) | 4성 | 빙청 / 빙결 | 남 / 냉정한 청년 | 빙결 마법사 | 결빙, 감속 = 얼음 마법 | 눈꽃 결정 무늬 나방 | 털 후드, 얼음 결정 지팡이 |
-| 아이리스 (`iris`) | 4성 | 무지개 / 공명 | 여 / 우아 | 프리즘 정령술사 | 동료 에너지 주입 = 정령의 힘 분배 | 무지갯빛 모르포 나비 | 매우 긴 머리, 주위를 도는 프리즘 결정 |
+| 동료 (영문명) | 등급 | 색상 / 속성 | 성별 / 체형 | 직업 | 스킬 연결 | 날개 | 등 처리 | 백뷰 식별 포인트 |
+|---|---|---|---|---|---|---|---|---|
+| 카엘 (`kael`) | 5성 | 보라 / 심연 | 여 / 날렵 | 그림자 암살자 | 즉사 = 암살, 첫 Miss 무효 = 그림자 회피 | 짙은 보라 나방 | 허리 반망토 (찢어진 검은 천) | 보라 브릿지 긴 포니테일, 찢어진 허리 반망토 |
+| 루미 (`lumi`) | 5성 | 황금 / 시간 | 여 / 작고 앳됨 | 시간술사 | 타이머 연장 = 모래시계 지팡이, 회중시계 | 톱니 문양 금빛 나비 | 몸에 맞는 짧은 로브 | 양갈래 올림머리, 모래시계 지팡이 |
+| 베른 (`bern`) | 5성 | 진홍 / 화염 | 여 / 근육질 장신 | 화염 대장장이 | 추가 피해 = 벼려낸 무기, 치명타 = 망치 일격 | 불씨 무늬 진홍 잠자리 | 없음 (앞치마 끈) | 굵게 땋은 붉은 머리, 어깨에 멘 거대 망치 |
+| 로제 (`rose`) | 4성 | 분홍 / 관통 | 여 / 늘씬 | 가시장미 궁수 | 관통 = 화살 | 장미 꽃잎형 나비 | 허리 장식끈 | 화살통, 높은 포니테일 |
+| 카밀라 (`camilla`) | 4성 | 암적 / 흡혈 | 여 / 마른 장신 | 흡혈 귀족 | 흡혈, 회복 = 크리스털 잔 | 검붉은 박쥐형 막날개 | 날개 망토 (막날개를 어깨에 두름) | 높은 깃, 망토처럼 두른 막날개 |
+| 시안 (`cyan`) | 4성 | 하늘 / 질풍 | 여 / 가벼움 | 바람 항해사 | 판정 시간 = 순풍, 콤보 보존 = 나침반 | 길고 가는 하늘색 잠자리 | 스카프 | 삼각모, 휘날리는 긴 스카프 |
+| 바란 (`baran`) | 4성 | 강철 / 수호 | 남 / 장년, 최대 거구 | 성기사 | 기절, 1회 생존 = 수호의 방패 | 강철색 딱정벌레 겉날개 | 긴 타바드 (허리 아래) | 투구 장식, 거대 방패 |
+| 미라 (`mira`) | 4성 | 녹색 / 치유 | 여 / 단정 | 치유 사제 | 회복, 실드 = 약초와 잎사귀 지팡이 | 잎맥 녹색 날개 (나뭇잎벌레형) | 몸에 맞는 로브 | 사제 베일, 땋은 머리 |
+| 제이드 (`jade`) | 4성 | 비취 / 충전 | 여 / 활발 | 음유시인 | 피버 충전 = 연주로 사기 고양 | 비취색 풀잠자리 | 허리 리본 | 깃털 꽂은 베레모, 류트 |
+| 레온 (`leon`) | 4성 | 빙청 / 빙결 | 남 / 냉정한 청년 | 빙결 마법사 | 결빙, 감속 = 얼음 마법 | 눈꽃 결정 무늬 나방 | 몸에 맞는 로브 | 털 후드, 얼음 결정 지팡이 |
+| 아이리스 (`iris`) | 4성 | 무지개 / 공명 | 여 / 우아 | 프리즘 정령술사 | 동료 에너지 주입 = 정령의 힘 분배 | 무지갯빛 모르포 나비 | 없음 | 매우 긴 머리, 주위를 도는 프리즘 결정 |
 
 ---
 
 ## 3. 프롬프트 블록
 
 블록 조합: `[LAYER_SPRITE_HEAD] + [VIEW] + [IDENTITY] + [OUTFIT] + [POSE] + [PALETTE] + [STYLE_BASE] + [LAYER_SPRITE_TAIL]`
-- `cutin`: VIEW_ILLUST + POSE_CUTIN
-- `battle_back`: VIEW_BATTLE_BACK + POSE_BATTLE_BACK (기준 이미지로 확정된 `cutin` 첨부)
+- `cutin`: VIEW_ILLUST + POSE_CUTIN (첨부: `fairy_base.png`, 지시문: 화풍 참고)
+- `battle_back`: VIEW_BATTLE_BACK + POSE_BATTLE_BACK (첨부: 확정된 `cutin`, 지시문: 같은 캐릭터)
 
 ### 3.1 카엘 (`kael`) - 그림자 암살자
 
 **IDENTITY**
 ```
-A lean and agile young male fairy, 7 heads tall. Sharp handsome features, cool narrow deep violet eyes, faint confident smirk, long pointed elf ears. Black hair with a single violet streak, falling over his forehead. Four large deep violet moth wings with dark eyespot patterns and silver-dusted edges.
+A lean and agile young female fairy, 7 heads tall. Sharp beautiful features, cool narrow deep violet eyes, faint confident smirk, long pointed elf ears. Black hair with a single violet streak, tied in a long high ponytail. Four large deep violet moth wings with dark eyespot patterns and silver-dusted edges.
 ```
 **OUTFIT**
 ```
-Wearing a fitted dark violet assassin leather armor with silver buckles, a deep hood, a lavender cloth mask pulled down around his neck, a black cloak with tattered edges, black leather bracers, dark breeches and soft black leather boots, belts lined with small throwing knives. Weapons: a pair of curved silver daggers with violet-wrapped grips.
+Wearing a fitted dark violet assassin leather armor with silver buckles and thin gold trim on the short skirted tunic hem and shoulder guards, several layered black leather buckle belts around the waist, a lavender cloth mask pulled down around her neck, a tattered black half-cape attached at the back of her belt flowing down from the waist, black fingerless leather gloves and bracers, dark leggings and soft black leather boots, belts lined with small throwing knives. Weapons: a pair of curved silver daggers with violet-wrapped grips. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
-Color palette: deep violet, black, silver, lavender.
+Color palette: deep violet, black, silver, lavender, thin gold accents.
 ```
 **POSE_CUTIN**
 ```
-Pose: lunging forward low toward the viewer with one curved dagger thrust out, the other dagger held in reverse grip behind him, cloak sweeping.
+Pose: lunging forward low toward the viewer with one curved dagger thrust out, the other dagger held in reverse grip behind her, ponytail and waist half-cape sweeping.
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: crouched ready facing away from the viewer toward the enemy, curved daggers in both hands, deep hood, tattered cloak and violet moth wings clearly visible.
+Pose: crouched ready facing away from the viewer toward the enemy, curved daggers in both hands, long black ponytail with violet streak, tattered waist half-cape and violet moth wings with eyespots clearly visible.
 ```
 
 ### 3.2 루미 (`lumi`) - 시간술사
@@ -70,7 +72,7 @@ A petite youthful girl fairy, 5 heads tall. Round curious golden eyes, cheerful 
 ```
 **OUTFIT**
 ```
-Wearing a short midnight blue mage robe embroidered with gold stars and constellations, a gold brocade vest over a pale yellow blouse, striped stockings and buckled brown shoes. Props: a staff topped with a large ornate brass hourglass with golden sand, and a brass pocket watch on a long gold chain at her waist.
+Wearing a fitted short midnight blue mage robe embroidered with gold stars and constellations, a gold brocade vest over a pale yellow blouse, striped stockings and buckled brown shoes. Props: a staff topped with a large ornate brass hourglass with golden sand, and a brass pocket watch on a long gold chain at her waist. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -89,11 +91,11 @@ Pose: floating facing away from the viewer toward the enemy, hourglass staff hel
 
 **IDENTITY**
 ```
-A tall, burly, broad-shouldered middle-aged male fairy, 7.5 heads tall. Rugged soot-smudged face with a short fiery red beard and thick sideburns, a scar across one cheek, bold grin, amber eyes, long pointed elf ears. Short fiery red hair. Four large crimson dragonfly wings with ember orange spots.
+A tall, muscular, broad-shouldered female fairy in her thirties, 7.5 heads tall. Confident soot-smudged face with freckles, a small scar on one cheek, bold grin, amber eyes, long pointed elf ears. Fiery red hair in a thick braid. Four large crimson dragonfly wings with ember orange spots.
 ```
 **OUTFIT**
 ```
-Wearing a sleeveless crimson work tunic, a heavy dark brown leather blacksmith apron with brass rivets, thick leather gloves and bracers, dark grey trousers and heavy boots, a tool belt with tongs and chisels. Weapon: a huge two-handed forge hammer with a black iron head engraved with ember orange runes.
+Wearing a sleeveless crimson work tunic, a heavy dark brown leather blacksmith apron with brass rivets, thick leather gloves and bracers, dark grey trousers and heavy boots, a tool belt with tongs and chisels. Weapon: a huge two-handed forge hammer with a black iron head engraved with ember orange runes. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -105,7 +107,7 @@ Pose: swinging the huge forge hammer overhead in both hands, about to strike dow
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: standing ready facing away from the viewer toward the enemy, huge forge hammer resting on his shoulder, apron straps crossing his back and crimson dragonfly wings clearly visible.
+Pose: standing ready facing away from the viewer toward the enemy, huge forge hammer resting on her shoulder, thick red braid, apron straps crossing her back and crimson dragonfly wings clearly visible.
 ```
 
 ### 3.4 로제 (`rose`) - 가시장미 궁수
@@ -116,7 +118,7 @@ A tall and elegant female fairy, 7 heads tall. Confident smile, rose pink eyes, 
 ```
 **OUTFIT**
 ```
-Wearing a fitted deep rose ranger tunic with gold trim, a short magenta hooded capelet, a leather chest guard, dark charcoal leggings and tall brown leather boots, a brown leather quiver of rose-fletched arrows on her back. Weapon: an elegant longbow carved like a thorned rose vine with a pink rose ornament.
+Wearing a fitted deep rose ranger tunic with gold trim, a long magenta sash tied at the waist with flowing ends, a leather chest guard, dark charcoal leggings and tall brown leather boots, a brown leather quiver of rose-fletched arrows on her back. Weapon: an elegant longbow carved like a thorned rose vine with a pink rose ornament. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -131,15 +133,15 @@ Pose: drawing the thorned longbow at full draw aimed toward the viewer, one eye 
 Pose: standing facing away from the viewer toward the enemy, drawing the longbow, quiver on her back, high ponytail and rose-petal wings clearly visible.
 ```
 
-### 3.5 블라드 (`vlad`) - 흡혈 귀족
+### 3.5 카밀라 (`camilla`) - 흡혈 귀족
 
 **IDENTITY**
 ```
-A slender, tall, pale aristocratic male fairy, 7.5 heads tall. Sharp handsome face, crimson eyes, sly smirk showing small fangs, long pointed elf ears. Slicked-back black hair with dark red tips. Two large dark crimson bat-like membrane wings with delicate fairy-like ribs, opaque.
+A slender, tall, pale aristocratic female fairy, 7.5 heads tall. Sharp elegant beauty, crimson eyes, sly smile showing small fangs, long pointed elf ears. Long straight black hair with dark red tips. Two large dark crimson bat-like membrane wings with delicate fairy-like ribs, opaque, draped around her shoulders like a high-collared cloak.
 ```
 **OUTFIT**
 ```
-Wearing a high-collared dark blood red noble coat with black velvet lapels and a ruby brooch, dark grey waistcoat, black silk cravat, black gloves, black trousers and polished black boots, a long black cape lined with crimson. Props: a crystal goblet filled with dark red liquid and an ebony cane sword with a ruby pommel.
+Wearing a high-collared dark blood red noble coat dress with black velvet lapels and a ruby brooch, a black corset waistcoat, black silk cravat, long black gloves, a long layered black skirt with a high front slit over black riding boots. Props: a crystal goblet filled with dark red liquid and an ebony cane sword with a ruby pommel. No separate cape; only her bat wings are draped around her shoulders.
 ```
 **PALETTE**
 ```
@@ -147,11 +149,11 @@ Color palette: blood red, black, dark grey, ruby.
 ```
 **POSE_CUTIN**
 ```
-Pose: raising the crystal goblet in an elegant toast toward the viewer with a sly smirk, other hand drawing the cane sword halfway.
+Pose: raising the crystal goblet in an elegant toast toward the viewer with a sly smile, other hand drawing the cane sword halfway, bat wings draped around her shoulders.
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: standing facing away from the viewer toward the enemy, cane sword in hand, high collar, long crimson-lined cape and spread bat-like membrane wings clearly visible.
+Pose: standing facing away from the viewer toward the enemy, cane sword in hand, high collar, long black hair, bat-like membrane wings spread wide from her shoulders clearly visible.
 ```
 
 ### 3.6 시안 (`cyan`) - 바람 항해사
@@ -162,7 +164,7 @@ A slim and agile female fairy, 6.5 heads tall. Energetic grin, bright sky blue e
 ```
 **OUTFIT**
 ```
-Wearing a sky blue navigator coat with silver buttons and rolled sleeves, a navy tricorn hat with a sky blue feather, a very long flowing scarf in sky blue and navy stripes, a brown leather vest, navy breeches and light brown boots. Props: a brass navigation compass on a chain and a brass spyglass.
+Wearing a fitted sky blue navigator jacket with silver buttons and rolled sleeves, a navy tricorn hat with a sky blue feather, a very long flowing scarf in sky blue and navy stripes, a brown leather vest, navy breeches and light brown boots. Props: a brass navigation compass on a chain and a brass spyglass. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -185,7 +187,7 @@ A very tall and massive middle-aged male fairy, 8 heads tall, the largest of the
 ```
 **OUTFIT**
 ```
-Wearing heavy polished steel paladin plate armor with brass trim, a dark blue tabard with a gold fairy crest, a steel great helm with a brass crest and a dark blue plume, a dark blue cape, steel gauntlets and sabatons. Weapons: a huge rectangular steel tower shield with a brass rim and an engraved fairy crest, and a heavy flanged mace at his hip.
+Wearing heavy polished steel paladin plate armor with brass trim, a long dark blue tabard with a gold fairy crest hanging from the waist to the shins, a steel great helm with a brass crest and a dark blue plume, steel gauntlets and sabatons. Weapons: a huge rectangular steel tower shield with a brass rim and an engraved fairy crest, and a heavy flanged mace at his hip. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -197,7 +199,7 @@ Pose: bracing the huge tower shield forward toward the viewer in a firm defensiv
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: standing firm facing away from the viewer toward the enemy, huge tower shield raised on his arm, plumed great helm, dark blue cape and beetle elytra wings clearly visible.
+Pose: standing firm facing away from the viewer toward the enemy, huge tower shield raised on his arm, plumed great helm, long tabard and beetle elytra wings clearly visible.
 ```
 
 ### 3.8 미라 (`mira`) - 치유 사제
@@ -208,7 +210,7 @@ A gentle and calm female fairy, 7 heads tall. Soft kind smile, soft green eyes, 
 ```
 **OUTFIT**
 ```
-Wearing a healer priestess robe in deep forest green with a sage green veil, a light mint green stole embroidered with a golden herb leaf emblem, a brown leather herb satchel with small glass potion bottles. Prop: a wooden staff topped with sprouting green leaves.
+Wearing a fitted healer priestess robe in deep forest green with a short sage green veil, a light mint green stole embroidered with a golden herb leaf emblem, a brown leather herb satchel with small glass potion bottles. Prop: a wooden staff topped with sprouting green leaves. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -220,7 +222,7 @@ Pose: holding the leaf-topped staff forward with a gentle smile, other hand offe
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: standing facing away from the viewer toward the enemy, leaf-topped staff held upright, sage green veil, long braid, herb satchel and green leaf wings clearly visible.
+Pose: standing facing away from the viewer toward the enemy, leaf-topped staff held upright, short sage green veil, long braid, herb satchel and green leaf wings clearly visible.
 ```
 
 ### 3.9 제이드 (`jade`) - 음유시인
@@ -231,7 +233,7 @@ A lively and mischievous female fairy, 6 heads tall. Big playful grin, jade gree
 ```
 **OUTFIT**
 ```
-Wearing a colorful bard outfit: a jade green doublet with gold embroidery and puffed sleeves, a dark brown short cape, a jade green beret with a long gold feather, dark brown trousers and pointed soft boots. Prop: a lute with a jade green painted body and gold inlay.
+Wearing a colorful bard outfit: a jade green doublet with gold embroidery and puffed sleeves, long gold-trimmed jade ribbons tied at the waist, a jade green beret with a long gold feather, dark brown trousers and pointed soft boots. Prop: a lute with a jade green painted body and gold inlay. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -243,7 +245,7 @@ Pose: strumming the lute energetically while leaning forward toward the viewer, 
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: hovering facing away from the viewer toward the enemy, strumming the lute, feathered beret, short cape and lacewing wings clearly visible.
+Pose: hovering facing away from the viewer toward the enemy, strumming the lute, feathered beret, waist ribbons fluttering and lacewing wings clearly visible.
 ```
 
 ### 3.10 레온 (`leon`) - 빙결 마법사
@@ -254,7 +256,7 @@ A cool and aloof young male fairy, 7 heads tall. Calm expressionless face, ice b
 ```
 **OUTFIT**
 ```
-Wearing a long ice blue frost mage robe with dark navy trim and silver snowflake embroidery, a fur-lined hood in ice blue tinted fur, dark navy gloves and fur-trimmed boots. Prop: a tall staff of pale blue ice crystal with a sharp crystal cluster at the top.
+Wearing a fitted long ice blue frost mage robe with dark navy trim and silver snowflake embroidery, a fur-trimmed hood in ice blue tinted fur attached to the robe collar, dark navy gloves and fur-trimmed boots. Prop: a tall staff of pale blue ice crystal with a sharp crystal cluster at the top. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -266,7 +268,7 @@ Pose: thrusting the ice crystal staff forward toward the viewer with one hand, t
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: standing facing away from the viewer toward the enemy, ice crystal staff raised, fur-lined hood and snowflake-patterned moth wings clearly visible.
+Pose: standing facing away from the viewer toward the enemy, ice crystal staff raised, fur-trimmed hood and snowflake-patterned moth wings clearly visible.
 ```
 
 ### 3.11 아이리스 (`iris`) - 프리즘 정령술사
@@ -277,7 +279,7 @@ A graceful and serene female fairy, 7 heads tall. Gentle calm expression, irides
 ```
 **OUTFIT**
 ```
-Wearing an elegant elementalist dress robe: a fitted lavender blue bodice with gold trim over a long layered skirt in soft gradient rainbow hues, a gold circlet set with a prism crystal, gold bracelets. Props: several small faceted prism crystals in rainbow colors floating in a circle around her.
+Wearing an elegant elementalist dress robe: a fitted lavender blue bodice with gold trim over a long layered skirt in soft gradient rainbow hues, a gold circlet set with a prism crystal, gold bracelets. Props: several small faceted prism crystals in rainbow colors floating in a circle around her. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -300,14 +302,18 @@ Pose: floating facing away from the viewer toward the enemy, arms spread with pr
 
 | 동료 | `cutin_[영문명].png` (VIEW_ILLUST) | `battle_back_[영문명].png` (VIEW_BATTLE_BACK) |
 |---|---|---|
-| 카엘 | 미생성 | 미생성 |
+| 카엘 | 확정 | 미생성 |
 | 루미 | 미생성 | 미생성 |
 | 베른 | 미생성 | 미생성 |
 | 로제 | 미생성 | 미생성 |
-| 블라드 | 미생성 | 미생성 |
+| 카밀라 | 미생성 | 미생성 |
 | 시안 | 미생성 | 미생성 |
 | 바란 | 미생성 | 미생성 |
 | 미라 | 미생성 | 미생성 |
 | 제이드 | 미생성 | 미생성 |
 | 레온 | 미생성 | 미생성 |
 | 아이리스 | 미생성 | 미생성 |
+
+### 생성 기록
+- 2026-11-03 카엘 컷인 1차 (삭제됨): 남성, 어깨 망토 착용 버전. 화풍 일치 및 화풍 참고 지시문 동작을 확인했으나, 이후 성별 변경(여성)과 망토 금지 규칙(가이드 규칙 10)으로 폐기. 이때 임의 생성된 손가락 없는 장갑, 금색 테두리는 현재 블록에 유지.
+- 2026-11-03 `cutin_kael.png` 확정 (2차): 첨부 `assets/characters/fairy/fairy_base.png`(v3) + 지시문 `Match the art style of the attached image (a different character).` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 카엘 IDENTITY + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 결과에서 짧은 치마형 상의 밑단, 여러 겹 버클 벨트가 임의 생성되어 OUTFIT에 고정함 (생성 당시 OUTFIT에는 해당 문구 없음).

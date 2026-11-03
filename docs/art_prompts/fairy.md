@@ -15,12 +15,12 @@ A 7-head-tall slender and graceful female fairy. Youthful face with cute Japanes
 
 **OUTFIT_BASE** (기본 복장, `fairy_costume_N`에서는 이 블록을 교체)
 ```
-Wearing a French Hussar-inspired royal blue cavalry officer uniform with high collar and steel gorget, dense gold hussar braiding with red underlay across the chest, gold fringed epaulettes over curved steel pauldrons, brown leather lace-up corset with red laces, brown leather belt with gold buckle, crimson red cape, red sash cord with hanging tassels at left hip, sabre scabbard at left hip, silver steel gauntlets with gold engraving, royal blue breeches with red side stripe, polished silver plate greaves, poleyns and sabatons with gold trim, black bicorne hat with gold trim, red cockade and large red and white plumes. Weapon: a long curved silver cavalry sabre with a golden D-guard and brown grip.
+Wearing a French Hussar-inspired royal blue cavalry officer uniform with high collar and steel gorget, dense gold hussar braiding with red underlay across the chest, gold fringed epaulettes over curved steel pauldrons, brown leather lace-up corset with red laces, brown leather belt with gold buckle, a crimson red half-cape attached at the back of the belt flowing down from the waist, red sash cord with hanging tassels at left hip, sabre scabbard at left hip, silver steel gauntlets with gold engraving, royal blue breeches with red side stripe, polished silver plate greaves, poleyns and sabatons with gold trim, black bicorne hat with gold trim, red cockade and large red and white plumes. Weapon: a long curved silver cavalry sabre with a golden D-guard and brown grip. No cape or cloak on the shoulders, wings fully visible.
 ```
 
 **PALETTE**
 ```
-Color palette: royal blue, crimson red, gold, polished silver, platinum ash-blonde, brown leather.
+Color palette: royal blue, crimson red, gold, polished silver, platinum ash-blonde, brown leather, pale ice blue.
 ```
 
 **POSE_BASE** (`fairy_base.png`)
@@ -40,12 +40,12 @@ Pose: floating upright in mid-air sitting cross-legged on nothing, reading an op
 
 **POSE_IDLE_C: 유영** (`lobby_fairy_idle_C.png`)
 ```
-Pose: drifting gracefully through the air as if swimming, body tilted forward almost horizontal, one arm stretched ahead, cape and ponytail trailing behind her, wings spread wide, relaxed lazy expression, sabre sheathed at her hip.
+Pose: drifting gracefully through the air as if swimming, body tilted forward almost horizontal, one arm stretched ahead, waist half-cape and ponytail trailing behind her, wings spread wide, relaxed lazy expression, sabre sheathed at her hip.
 ```
 
 **POSE_BATTLE_BACK** (`fairy_battle_back.png`)
 ```
-Pose: standing ready facing away from the viewer toward the enemy, sabre drawn and held low in her right hand, back of the bicorne hat with plumes, ponytail and crimson cape clearly visible, wings spread.
+Pose: standing ready facing away from the viewer toward the enemy, sabre drawn and held low in her right hand, back of the bicorne hat with plumes, ponytail, crimson waist half-cape and wings clearly visible, wings spread.
 ```
 
 ---
@@ -56,7 +56,7 @@ Pose: standing ready facing away from the viewer toward the enemy, sabre drawn a
 
 | 파일 | 용도 | VIEW | 블록 조합 | 상태 |
 |---|---|---|---|---|
-| `fairy_base.png` | 캐릭터 일러스트 (기준 이미지) | VIEW_ILLUST | IDENTITY + OUTFIT_BASE + POSE_BASE | 확정 (최초 생성본, 배경 포함) |
+| `fairy_base.png` | 캐릭터 일러스트 (기준 이미지) | VIEW_ILLUST | IDENTITY + OUTFIT_BASE + POSE_BASE | 확정 (v3, 2026-11-03) |
 | `lobby_fairy_idle_A.png` | 로비 낮잠 | VIEW_ILLUST | IDENTITY + OUTFIT_BASE + POSE_IDLE_A | 미생성 |
 | `lobby_fairy_idle_B.png` | 로비 마도서 독서 | VIEW_ILLUST | IDENTITY + OUTFIT_BASE + POSE_IDLE_B | 미생성 |
 | `lobby_fairy_idle_C.png` | 로비 유영 | VIEW_ILLUST | IDENTITY + OUTFIT_BASE + POSE_IDLE_C | 미생성 |
@@ -64,4 +64,6 @@ Pose: standing ready facing away from the viewer toward the enemy, sabre drawn a
 | `fairy_costume_1~6.png` | 코스튬 일러스트 | VIEW_ILLUST | IDENTITY + 코스튬별 OUTFIT + POSE | 미생성 (코스튬 OUTFIT 블록 미작성) |
 
 ### 확정 프롬프트 기록
-- `fairy_base.png`: 사용자 제공 최초 프롬프트로 생성 (배경 포함 일러스트). 블록 분리 전 원본이므로, 투명 배경 재생성 시 위 블록 조합을 사용한다.
+- `fairy_base.png` v1 (원본): 사용자 제공 최초 프롬프트로 생성한 배경 포함 일러스트. 어깨 망토 착용(규칙 10 위반)으로 교체. 파일은 삭제되었으며 커밋 `cd7268e`의 `assets/fairy_base.png`로 확인할 수 있다.
+- `fairy_base.png` v2 (중간 결과물, 삭제됨): 첨부 v1 원본 + 지시문 `Same character as the attached image, with one outfit change: the shoulder cape is removed and replaced by a crimson half-cape flowing from the back of the belt, so the wings are fully visible from the shoulders.` + 블록 조합(LAYER_SPRITE_HEAD + VIEW_ILLUST + IDENTITY + OUTFIT_BASE + POSE_BASE + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL). 망토 해결, 단 날개가 크림색, 눈이 적갈색으로 생성.
+- `fairy_base.png` v3 (확정, `assets/characters/fairy/fairy_base.png`): 첨부 v2 + 지시문 `Same character, outfit and pose as the attached image, with exactly two color changes: recolor all four wings to a clearly visible pale ice-blue tint (not white, not cream), and recolor her eyes to bright golden amber. Keep everything else identical.` + 동일 블록 조합(PALETTE에 `pale ice blue` 추가). 날개 평균 RGB (188,200,200)로 하늘색 확인, 눈 금빛 호박색 확인.
