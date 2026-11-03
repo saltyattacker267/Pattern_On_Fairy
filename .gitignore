@@ -17,3 +17,5 @@ dist/
 bin/
 obj/
 temp/
+# PC별 Claude Code 로컬 설정
+CLAUDE.local.md
