@@ -14,24 +14,24 @@
 3. **날개 종류 전원 상이:** 전투 화면은 3인 백뷰이므로 날개 형태와 머리/모자 실루엣만으로 식별 가능해야 한다.
 4. **등급 차등:** 5성은 4성보다 장식과 날개를 크고 화려하게 한다.
 5. **공통 요정 특징:** 전원 길고 뾰족한 요정 귀. 카밀라는 박쥐형 막날개를 가진 다른 요정 종족이다.
-6. **성비:** 캐릭터 수집형 게임 특성을 고려하여 여성 9 : 남성 2 (남성: 바란, 레온).
+6. **성비:** 캐릭터 수집형 게임 특성을 고려하여 여성 9 : 남성 2 (남성: 아이아스, 알렉세이).
 7. **망토 금지 (가이드 규칙 10):** 어깨/목에서 늘어지는 망토 대신 "등 처리" 칸의 방식으로 표현한다.
 
 ## 2. 동료 목록
 
 | 동료 (영문명) | 등급 | 색상 / 속성 | 성별 / 체형 | 직업 | 복식 모티프 | 스킬 연결 | 날개 | 등 처리 | 백뷰 식별 포인트 |
 |---|---|---|---|---|---|---|---|---|---|
-| 카엘 (`kael`) | 5성 | 보라 / 심연 | 여 / 날렵 | 그림자 암살자 | 일본 쿠노이치 | 즉사 = 암살, 첫 Miss 무효 = 그림자 회피 | 짙은 보라 나방 | 허리 뒤 긴 오비 띠 (찢어진 검은 천) | 보라 브릿지 긴 포니테일, 찢어진 오비 띠 |
-| 루미 (`lumi`) | 5성 | 황금 / 시간 | 여 / 작고 앳됨 | 시간술사 | 빅토리아 시대 시계 장인 | 타이머 연장 = 모래시계 지팡이, 회중시계 | 톱니 문양 금빛 나비 | 연미복 자락, 버슬 스커트 | 양갈래 올림머리 + 황동 고글, 모래시계 지팡이 |
-| 베른 (`bern`) | 5성 | 진홍 / 화염 | 여 / 근육질 장신 | 화염 대장장이 | 노르드(바이킹) 대장장이 | 추가 피해 = 벼려낸 무기, 치명타 = 망치 일격 | 불씨 무늬 진홍 잠자리 | 없음 (앞치마 끈) | 굵게 땋은 붉은 머리, 털 깃, 어깨에 멘 거대 망치 |
-| 로제 (`rose`) | 4성 | 분홍 / 관통 | 여 / 늘씬 | 가시장미 궁수 | 페르시아 궁수 | 관통 = 화살 | 장미 꽃잎형 나비 | 허리 장식끈, 옆트임 카프탄 자락 | 터번형 모자 + 높은 포니테일, 화살통 |
+| 카스미 (`kasumi`) | 5성 | 보라 / 심연 | 여 / 날렵 | 그림자 암살자 | 일본 쿠노이치 | 즉사 = 암살, 첫 Miss 무효 = 그림자 회피 | 짙은 보라 나방 | 허리 뒤 긴 오비 띠 (찢어진 검은 천) | 보라 브릿지 긴 포니테일, 찢어진 오비 띠 |
+| 에이다 (`ada`) | 5성 | 황금 / 시간 | 여 / 작고 앳됨 | 시간술사 | 빅토리아 시대 시계 장인 | 타이머 연장 = 모래시계 지팡이, 회중시계 | 톱니 문양 금빛 나비 | 연미복 자락, 버슬 스커트 | 양갈래 올림머리 + 황동 고글, 모래시계 지팡이 |
+| 시그리드 (`sigrid`) | 5성 | 진홍 / 화염 | 여 / 근육질 장신 | 화염 대장장이 | 노르드(바이킹) 대장장이 | 추가 피해 = 벼려낸 무기, 치명타 = 망치 일격 | 불씨 무늬 진홍 잠자리 | 없음 (앞치마 끈) | 굵게 땋은 붉은 머리, 털 깃, 어깨에 멘 거대 망치 |
+| 록사나 (`roxana`) | 4성 | 분홍 / 관통 | 여 / 늘씬 | 가시장미 궁수 | 페르시아 궁수 | 관통 = 화살 | 장미 꽃잎형 나비 | 허리 장식끈, 옆트임 카프탄 자락 | 터번형 모자 + 높은 포니테일, 화살통 |
 | 카밀라 (`camilla`) | 4성 | 암적 / 흡혈 | 여 / 마른 장신 | 흡혈 귀족 | 동유럽 보야르 귀족 | 흡혈, 회복 = 크리스털 잔 | 검붉은 박쥐형 막날개 | 날개 망토 (막날개를 어깨에 두름) | 코코시닉 머리장식, 망토처럼 두른 막날개 |
-| 시안 (`cyan`) | 4성 | 하늘 / 질풍 | 여 / 가벼움 | 바람 항해사 | 대항해시대 스페인 갈레온 항해사 | 판정 시간 = 순풍, 콤보 보존 = 아스트롤라베 | 길고 가는 하늘색 잠자리 | 스카프 | 깃털 꽂은 모리온 투구, 휘날리는 긴 스카프 |
-| 바란 (`baran`) | 4성 | 강철 / 수호 | 남 / 장년, 최대 거구 | 성기사 | 고대 그리스 호플리트 | 기절, 1회 생존 = 수호의 방패 | 강철색 딱정벌레 겉날개 | 프테루게스 (허리 아래 가죽 띠 치마) | 가로 볏 코린트식 투구, 거대 원형 방패 |
-| 미라 (`mira`) | 4성 | 녹색 / 치유 | 여 / 단정 | 치유 사제 | 켈트 드루이드 | 회복, 실드 = 약초와 잎사귀 지팡이 | 잎맥 녹색 날개 (나뭇잎벌레형) | 몸에 맞는 로브 | 겨우살이 화관 + 짧은 베일, 땋은 머리 |
-| 제이드 (`jade`) | 4성 | 비취 / 충전 | 여 / 활발 | 음유시인 (무희) | 아랍 무희 | 피버 충전 = 춤과 심벌즈로 사기 고양 | 비취색 풀잠자리 | 머리띠 베일, 동전 허리 스카프 | 동전 머리띠 베일, 동전 허리 스카프, 하렘 팬츠 |
-| 레온 (`leon`) | 4성 | 빙청 / 빙결 | 남 / 냉정한 청년 | 빙결 마법사 | 제정 러시아 궁정 마법사 | 결빙, 감속 = 얼음 마법 | 눈꽃 결정 무늬 나방 | 긴 코트 자락 | 원통형 털모자, 털 장식 긴 코트, 얼음 결정 지팡이 |
-| 아이리스 (`iris`) | 4성 | 무지개 / 공명 | 여 / 우아 | 프리즘 정령술사 | 중국 한푸 선녀 | 동료 에너지 주입 = 정령의 힘 분배 | 무지갯빛 모르포 나비 | 팔에 감은 비단 띠 (피백) | 매우 긴 머리 + 금관, 비단 띠, 주위를 도는 프리즘 결정 |
+| 카탈리나 (`catalina`) | 4성 | 하늘 / 질풍 | 여 / 가벼움 | 바람 항해사 | 대항해시대 스페인 갈레온 항해사 | 판정 시간 = 순풍, 콤보 보존 = 아스트롤라베 | 길고 가는 하늘색 잠자리 | 스카프 | 깃털 꽂은 모리온 투구, 휘날리는 긴 스카프 |
+| 아이아스 (`aias`) | 4성 | 강철 / 수호 | 남 / 장년, 최대 거구 | 성기사 | 고대 그리스 호플리트 | 기절, 1회 생존 = 수호의 방패 | 강철색 딱정벌레 겉날개 | 프테루게스 (허리 아래 가죽 띠 치마) | 가로 볏 코린트식 투구, 거대 원형 방패 |
+| 에이린 (`eirin`) | 4성 | 녹색 / 치유 | 여 / 단정 | 치유 사제 | 켈트 드루이드 | 회복, 실드 = 약초와 잎사귀 지팡이 | 잎맥 녹색 날개 (나뭇잎벌레형) | 몸에 맞는 로브 | 겨우살이 화관 + 짧은 베일, 땋은 머리 |
+| 셰헤라자드 (`scheherazade`) | 4성 | 비취 / 충전 | 여 / 활발 | 음유시인 (무희) | 아랍 무희 | 피버 충전 = 춤과 심벌즈로 사기 고양 | 비취색 풀잠자리 | 머리띠 베일, 동전 허리 스카프 | 동전 머리띠 베일, 동전 허리 스카프, 하렘 팬츠 |
+| 알렉세이 (`aleksei`) | 4성 | 빙청 / 빙결 | 남 / 냉정한 청년 | 빙결 마법사 | 제정 러시아 궁정 마법사 | 결빙, 감속 = 얼음 마법 | 눈꽃 결정 무늬 나방 | 긴 코트 자락 | 원통형 털모자, 털 장식 긴 코트, 얼음 결정 지팡이 |
+| 다온 (`daon`) | 4성 | 무지개 / 공명 | 여 / 우아 | 프리즘 정령술사 | 한국 한복 선녀 | 동료 에너지 주입 = 정령의 힘 분배 | 무지갯빛 모르포 나비 | 팔에 걸친 비단 띠, 늘어진 옷고름 | 매우 긴 머리 + 화관, 색동 소매, 비단 띠, 주위를 도는 프리즘 결정 |
 
 ---
 
@@ -41,7 +41,7 @@
 - `cutin`: VIEW_ILLUST + POSE_CUTIN (첨부: `fairy_base.png`, 지시문: 화풍 참고)
 - `battle_back`: VIEW_BATTLE_BACK + POSE_BATTLE_BACK (첨부: 확정된 `cutin`, 지시문: 같은 캐릭터)
 
-### 3.1 카엘 (`kael`) - 그림자 암살자 / 일본 쿠노이치
+### 3.1 카스미 (`kasumi`) - 그림자 암살자 / 일본 쿠노이치
 
 **IDENTITY**
 ```
@@ -49,7 +49,7 @@ A lean and agile young female fairy, 7 heads tall. Sharp beautiful features, coo
 ```
 **OUTFIT**
 ```
-Wearing a Japanese kunoichi (female ninja) outfit: a short dark violet kimono-style wrap top with sleeveless shoulders, fine black kusari chainmail mesh visible at the collar and upper arms, a black obi sash tied at the waist with a long tattered black obi tail flowing down from the back of her waist, black tekko hand guards and arm guards with silver plates, a lavender face cloth mask pulled down around her neck, dark violet short hakama-style shorts, black leg wraps with kyahan shin guards and black split-toe tabi boots, several kunai tucked into the obi. Weapons: a short straight ninjato with a violet-wrapped grip and a square guard, and a kunai. No cape or cloak on the shoulders, wings fully visible.
+Wearing a Japanese kunoichi (female ninja) outfit: a short dark violet kimono-style wrap top with sleeveless shoulders, fine black kusari chainmail mesh visible at the collar and upper arms, a black obi sash tied at the waist with a large bow knot at the back and long tattered black obi tails flowing down from the back of her waist, black tekko arm guards with silver plates over black fingerless gloves, a lavender face cloth mask pulled down around her neck and knotted at the side, dark violet short hakama-style shorts, black leg wraps with kyahan shin guards and black split-toe tabi boots, several kunai tucked into the obi. Weapons: a short straight ninjato with a violet-wrapped grip and a square guard, and a kunai. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -64,7 +64,7 @@ Pose: lunging forward low toward the viewer with the ninjato held in reverse gri
 Pose: crouched ready facing away from the viewer toward the enemy, ninjato in reverse grip, long black ponytail with violet streak, long tattered obi tail and violet moth wings with eyespots clearly visible.
 ```
 
-### 3.2 루미 (`lumi`) - 시간술사 / 빅토리아 시대 시계 장인
+### 3.2 에이다 (`ada`) - 시간술사 / 빅토리아 시대 시계 장인
 
 **IDENTITY**
 ```
@@ -87,7 +87,7 @@ Pose: floating in mid-air raising the hourglass staff high with one hand, holdin
 Pose: floating facing away from the viewer toward the enemy, hourglass staff held up, tailcoat tails and bustle skirt, hair buns with goggles and golden gear-patterned wings clearly visible.
 ```
 
-### 3.3 베른 (`bern`) - 화염 대장장이 / 노르드(바이킹) 대장장이
+### 3.3 시그리드 (`sigrid`) - 화염 대장장이 / 노르드(바이킹) 대장장이
 
 **IDENTITY**
 ```
@@ -110,7 +110,7 @@ Pose: swinging the huge forge hammer overhead in both hands, about to strike dow
 Pose: standing ready facing away from the viewer toward the enemy, huge forge hammer resting on her shoulder, thick red braid, grey fur collar, apron straps crossing her back and crimson dragonfly wings clearly visible.
 ```
 
-### 3.4 로제 (`rose`) - 가시장미 궁수 / 페르시아 궁수
+### 3.4 록사나 (`roxana`) - 가시장미 궁수 / 페르시아 궁수
 
 **IDENTITY**
 ```
@@ -156,7 +156,7 @@ Pose: raising the crystal goblet in an elegant toast toward the viewer with a sl
 Pose: standing facing away from the viewer toward the enemy, cane sword in hand, tall kokoshnik headdress, long black hair, bat-like membrane wings spread wide from her shoulders clearly visible.
 ```
 
-### 3.6 시안 (`cyan`) - 바람 항해사 / 대항해시대 스페인 갈레온 항해사
+### 3.6 카탈리나 (`catalina`) - 바람 항해사 / 대항해시대 스페인 갈레온 항해사
 
 **IDENTITY**
 ```
@@ -179,7 +179,7 @@ Pose: dashing forward through the air leaning into the wind, pointing ahead with
 Pose: hovering facing away from the viewer toward the enemy, spyglass raised in one hand, plumed morion helmet, long striped scarf streaming and long narrow dragonfly wings clearly visible.
 ```
 
-### 3.7 바란 (`baran`) - 성기사 / 고대 그리스 호플리트
+### 3.7 아이아스 (`aias`) - 성기사 / 고대 그리스 호플리트
 
 **IDENTITY**
 ```
@@ -202,7 +202,7 @@ Pose: bracing the huge round shield forward toward the viewer in a firm defensiv
 Pose: standing firm facing away from the viewer toward the enemy, huge round shield raised on his arm, spear in the other hand, transverse-crested Corinthian helmet, pteruges skirt and beetle elytra wings clearly visible.
 ```
 
-### 3.8 미라 (`mira`) - 치유 사제 / 켈트 드루이드
+### 3.8 에이린 (`eirin`) - 치유 사제 / 켈트 드루이드
 
 **IDENTITY**
 ```
@@ -225,7 +225,7 @@ Pose: holding the oak staff forward with a gentle smile, other hand offering a s
 Pose: standing facing away from the viewer toward the enemy, oak staff held upright, mistletoe crown with short sage green veil, long braid, herb satchel and green leaf wings clearly visible.
 ```
 
-### 3.9 제이드 (`jade`) - 음유시인(무희) / 아랍 무희
+### 3.9 셰헤라자드 (`scheherazade`) - 음유시인(무희) / 아랍 무희
 
 **IDENTITY**
 ```
@@ -248,7 +248,7 @@ Pose: twirling mid-spin in the air toward the viewer, both arms raised clashing 
 Pose: hovering facing away from the viewer toward the enemy, arms raised with finger cymbals, coin headband veil, coin hip scarf, harem pants and lacewing wings clearly visible.
 ```
 
-### 3.10 레온 (`leon`) - 빙결 마법사 / 제정 러시아 궁정 마법사
+### 3.10 알렉세이 (`aleksei`) - 빙결 마법사 / 제정 러시아 궁정 마법사
 
 **IDENTITY**
 ```
@@ -271,7 +271,7 @@ Pose: thrusting the ice crystal staff forward toward the viewer with one hand, t
 Pose: standing facing away from the viewer toward the enemy, ice crystal staff raised, tall fur hat, long greatcoat skirts and snowflake-patterned moth wings clearly visible.
 ```
 
-### 3.11 아이리스 (`iris`) - 프리즘 정령술사 / 중국 한푸 선녀
+### 3.11 다온 (`daon`) - 프리즘 정령술사 / 한국 한복 선녀
 
 **IDENTITY**
 ```
@@ -279,19 +279,19 @@ A graceful and serene female fairy, 7 heads tall. Gentle calm expression, irides
 ```
 **OUTFIT**
 ```
-Wearing an elegant Chinese Hanfu celestial maiden outfit: a lavender blue cross-collar top with wide flowing sleeves and gold embroidery, a long pleated skirt in soft gradient rainbow hues, a wide gold-embroidered waist sash with jade pendants and tassels, a long iridescent lavender silk pibo ribbon draped over her forearms and floating around her body below the shoulders, an ornate gold hair crown set with a prism crystal and hanging lavender bead ornaments. Props: several small faceted prism crystals in rainbow colors floating in a circle around her. No cape or cloak on the shoulders, wings fully visible.
+Wearing an elegant traditional Korean hanbok celestial maiden (seonnyeo) outfit: a short lavender blue jeogori jacket with saekdong rainbow-striped sleeves and gold-stamped geumbak patterns, tied at the chest with a long deep violet otgoreum ribbon, a voluminous high-waisted long chima skirt in soft gradient rainbow hues, a norigae tassel ornament with a jade piece and a small prism crystal hanging from the waist, a long iridescent lavender silk ribbon draped over her forearms and floating around her body below the shoulders, an ornate gold hwagwan floral crown set with a prism crystal and gold tteoljam trembling hairpins. Props: several small faceted prism crystals in rainbow colors floating in a circle around her. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
-Color palette: lavender blue, iridescent rainbow accents, gold, jade green.
+Color palette: lavender blue, saekdong rainbow stripes, iridescent rainbow accents, gold, jade green.
 ```
 **POSE_CUTIN**
 ```
-Pose: floating with both arms open gracefully, guiding the circle of prism crystals around her, eyes gently closed, hair, wide sleeves and pibo ribbon flowing softly.
+Pose: floating with both arms open gracefully, guiding the circle of prism crystals around her, eyes gently closed, hair, saekdong sleeves, otgoreum ribbon and silk ribbon flowing softly.
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: floating facing away from the viewer toward the enemy, arms spread with prism crystals circling her, very long lavender hair with gold crown, floating pibo ribbon and large morpho wings clearly visible.
+Pose: floating facing away from the viewer toward the enemy, arms spread with prism crystals circling her, very long lavender hair with gold hwagwan crown, saekdong sleeves, full chima skirt, floating silk ribbon and large morpho wings clearly visible.
 ```
 
 ---
@@ -302,19 +302,21 @@ Pose: floating facing away from the viewer toward the enemy, arms spread with pr
 
 | 동료 | `cutin_[영문명].png` (VIEW_ILLUST) | `battle_back_[영문명].png` (VIEW_BATTLE_BACK) |
 |---|---|---|
-| 카엘 | 폐기 (재생성 대기) | 미생성 |
-| 루미 | 미생성 | 미생성 |
-| 베른 | 미생성 | 미생성 |
-| 로제 | 미생성 | 미생성 |
+| 카스미 | 확정 | 미생성 |
+| 에이다 | 미생성 | 미생성 |
+| 시그리드 | 미생성 | 미생성 |
+| 록사나 | 미생성 | 미생성 |
 | 카밀라 | 미생성 | 미생성 |
-| 시안 | 미생성 | 미생성 |
-| 바란 | 미생성 | 미생성 |
-| 미라 | 미생성 | 미생성 |
-| 제이드 | 미생성 | 미생성 |
-| 레온 | 미생성 | 미생성 |
-| 아이리스 | 미생성 | 미생성 |
+| 카탈리나 | 미생성 | 미생성 |
+| 아이아스 | 미생성 | 미생성 |
+| 에이린 | 미생성 | 미생성 |
+| 셰헤라자드 | 미생성 | 미생성 |
+| 알렉세이 | 미생성 | 미생성 |
+| 다온 | 미생성 | 미생성 |
 
 ### 생성 기록
 - 2026-11-03 카엘 컷인 1차 (삭제됨): 남성, 어깨 망토 착용 버전. 화풍 일치 및 화풍 참고 지시문 동작을 확인했으나, 이후 성별 변경(여성)과 망토 금지 규칙(가이드 규칙 10)으로 폐기. 이때 임의 생성된 손가락 없는 장갑, 금색 테두리는 현재 블록에 유지.
 - 2026-11-03 `cutin_kael.png` 확정 (2차): 첨부 `assets/characters/fairy/fairy_base.png`(v3) + 지시문 `Match the art style of the attached image (a different character).` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 카엘 IDENTITY + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 결과에서 짧은 치마형 상의 밑단, 여러 겹 버클 벨트가 임의 생성되어 OUTFIT에 고정함 (생성 당시 OUTFIT에는 해당 문구 없음).
 - 2026-11-04 동료 11인 복식 모티프 재설정 (원칙 1 변경). 카엘이 서양식 암살자 가죽 갑옷에서 일본 쿠노이치로 바뀌어 `cutin_kael.png`(2차)는 폐기하고, 새 OUTFIT과 `fairy_base.png` v4로 재생성한다. 파일은 재생성 시 덮어쓴다.
+- 2026-11-04 동료 이름을 복식 모티프에 맞게 변경 (위 기록의 이름은 당시 이름 그대로 둠): 카엘(`kael`)→카스미(`kasumi`), 루미(`lumi`)→에이다(`ada`), 베른(`bern`)→시그리드(`sigrid`), 로제(`rose`)→록사나(`roxana`), 카밀라(`camilla`) 유지, 시안(`cyan`)→카탈리나(`catalina`), 바란(`baran`)→아이아스(`aias`), 미라(`mira`)→에이린(`eirin`), 제이드(`jade`)→셰헤라자드(`scheherazade`), 레온(`leon`)→알렉세이(`aleksei`), 아이리스(`iris`)→다온(`daon`). 다온의 모티프는 중국 한푸 선녀에서 한국 한복 선녀로 변경. 기존 `cutin_kael.png`는 `cutin_kasumi.png` 생성 시 삭제한다.
+- 2026-11-04 `cutin_kasumi.png` 확정: 첨부 `assets/characters/fairy/fairy_base.png`(v4) + 지시문 `Match the art style of the attached image (a different character).` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 카스미 IDENTITY + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 결과에서 오비 뒤 큰 리본 매듭, 손가락 없는 장갑, 옆으로 묶은 목 천이 임의 생성되어 OUTFIT에 고정함 (생성 당시 OUTFIT에는 해당 문구 없음). 사슬 갑옷은 그물형 망사로, 포즈는 돌진 대신 넓게 선 자세·정방향 파지로 생성됨. 선이 기준 이미지보다 가늘고 붓 터치가 약하나 재생성해도 개선되지 않아 채택. 기존 `cutin_kael.png` 삭제.
