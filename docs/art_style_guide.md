@@ -37,8 +37,9 @@
 
 ### STYLE_BASE (모든 에셋 공통 화풍)
 ```
-Art style: bold, thick, dark comic ink outlines with sharp chiseled edges (American cartoon inspired dynamic linework), combined with rich vintage European painterly texture, visible gouache and oil brushstrokes, dramatic chiaroscuro lighting.
+Art style: bold, thick, dark comic ink outlines with sharp chiseled edges on the body, clothing, props and wings (American cartoon inspired dynamic linework), but thin, soft, delicate lineart on the face for a gentler expression, combined with rich vintage European painterly texture, visible gouache and oil brushstrokes, strong dramatic chiaroscuro lighting with deep, clearly defined form shadows on the body and clothing, pronounced volumetric three-dimensional shading.
 ```
+- 2026-11-04: 기준 이미지 `fairy_base.png` v4 생성 프롬프트의 STYLE을 일반화하여 반영 (얼굴 선 약화, 몸 그림자·입체감 강화). 배경 제거 시 바닥 그림자 잔상을 막기 위해 `cast shadows`는 제외했다.
 
 ### LAYER_SPRITE_HEAD (스프라이트 앞부분)
 ```
@@ -118,6 +119,7 @@ Subtle canvas and aged paper grain texture.
    - 캐릭터 시트의 "등 처리" 칸에 캐릭터별 처리 방식을 명시하고, 프롬프트 작성 후 `cape`/`cloak` 키워드를 검색해 허용된 표현(허리 반망토, 날개 망토, 금지 문장) 외에 남아 있지 않은지 확인한다.
    - 날개가 없는 몬스터/보스에는 적용하지 않는다.
 11. **첨부 이미지 색 우선 현상:** 기준 이미지를 첨부하면 첨부 이미지의 색이 텍스트 프롬프트의 색 지정보다 우선한다. 기준 이미지와 다른 색을 원하면 지시문에 `recolor <부위> to <색> (not <기존 색>)` 형태로 변경 사항을 명시한다.
+   - 그림체와 조명도 같다. 첨부 이미지가 있으면 Gemini는 원본을 편집하는 방식으로 처리하여, 화풍 변경·그림자 강화 지시는 거의 반영되지 않는다 (2026-11-04 검증). 화풍 자체를 바꾸려면 첨부 없이 텍스트로만 생성한다.
 
 ---
 
@@ -130,5 +132,8 @@ Subtle canvas and aged paper grain texture.
 | 2026-11-03 | `assets/test/fairy_base_v2_test.png` | 원본 첨부 + 지시문으로 어깨 망토 제거 성공 (규칙 10). 단 텍스트로 지정한 날개 하늘색/눈 호박색이 무시되고 첨부 원본의 색을 따름 |
 | 2026-11-03 | `assets/test/fairy_base_v3_test.png` | v2 첨부 + 지시문에 색 변경을 명시하자 날개 하늘색, 눈 호박색 반영 → 규칙 11 추가. 기준 이미지 v3로 확정 |
 | 2026-11-03 | `assets/test/cutin_kael_test.png` | `fairy_base.png` 첨부 + 화풍 참고 지시문으로 다른 캐릭터를 같은 화풍으로 생성 성공. 이후 성별 변경 및 규칙 10으로 폐기 |
+| 2026-11-04 | `assets/test/fairy_base_anime_A_test.png` | 일본 애니풍(모바일 가챠 일러스트) 화풍 전환 시도, `fairy_base.png` 첨부. 원본과 거의 동일하고 얼굴 인상만 약간 부드러워짐 → 규칙 11 보강 |
+| 2026-11-04 | `assets/test/fairy_base_anime_A2/B/C/D_test.png` | 첨부 없이 텍스트만으로 애니풍 4종(가챠 일러스트 / TV 셀화 / 90년대 셀화 / 厚塗り) 생성. 화풍은 바뀌나 작가명 없는 묘사는 일반적인 그림체로 수렴하여 미채택. 디자인은 텍스트 블록만으로 대부분 유지, 단 D안은 등신이 낮아짐 |
+| 2026-11-04 | `assets/test/fairy_base_softface_3d_test.png`, `_v2_test.png` | 첨부 + "얼굴 선 약화, 몸 그림자 강화" 지시. v2는 광원 방향까지 지정. 얼굴은 약간 부드러워졌으나 그림자 변화 없음 → 규칙 11 보강. `fairy_base_softface_3d_test.png`를 기준 이미지 v4로 채택 |
 
 ※ 위 테스트 이미지는 2026-11-03 정리 시 `assets/test/`에서 삭제되었다. `fairy_base_sprite_test.png`, `lobby_fairy_idle_A_test.png`는 커밋 `cd7268e`에서 확인할 수 있으며, 나머지는 커밋되지 않은 중간 결과물이다. 확정 이미지는 각 캐릭터 시트의 체크리스트 경로를 따른다.
