@@ -42,7 +42,7 @@
 블록 조합: `[LAYER_SPRITE_HEAD] + [VIEW] + [IDENTITY] + [FACE] + [OUTFIT] + [POSE] + [PALETTE] + [STYLE_BASE] + [LAYER_SPRITE_TAIL]`
 - `cutin`: VIEW_ILLUST + POSE_CUTIN (첨부: `fairy_base.png`, 지시문: 화풍 참고)
 - `battle_back`: VIEW_BATTLE_BACK + POSE_BATTLE_BACK (첨부: 확정된 `cutin`, 지시문: 같은 캐릭터)
-- FACE는 캐릭터별 블록에 적힌 종류를 쓴다. 비요른은 FACE 없이 조합한다.
+- FACE는 캐릭터별 블록에 적힌 종류를 쓴다. 비요른은 FACE 없이 조합한다. `battle_back`은 얼굴이 보이지 않아야 하므로 전원 FACE 없이 조합한다 (2026-11-11 추가).
 
 **FACE_FEMALE** (여성 동료 공통)
 ```
@@ -256,13 +256,13 @@ Pose: standing facing away from the viewer toward the enemy, oak staff held upri
 
 **IDENTITY**
 ```
-A lively and mischievous female fairy, a young adult in her early twenties, 6 heads tall. Big playful grin, jade green eyes, light freckles, long pointed elf ears. Jade green bob haircut with straight bangs. Four jade tinted lacewing wings with fine net-like veins.
+A lively and mischievous female fairy, a young adult in her early twenties, 6 heads tall. Big playful grin, jade green eyes, light freckles, long pointed elf ears. Jade green bob haircut with straight bangs. Four pale jade tinted lacewing wings with angular gold geometric vein patterns.
 ```
 **FACE**: FACE_FEMALE
 
 **OUTFIT**
 ```
-Wearing a fantasy-adapted Arabian dancer outfit: a jade green cropped bolero top with gold embroidery and a bare midriff, a gold coin headband with a semi-opaque jade green silk veil draped over the back of her hair, a jade green hip scarf belt lined with rows of small gold coins and tassels, flowing semi-sheer jade green chiffon harem pants with side slits, gathered at the ankles, gold arm cuffs and gold anklets with tiny bells, soft pointed gold slippers. Props: gold finger cymbals on both hands and a long jade green silk dance scarf. No cape or cloak on the shoulders, wings fully visible.
+Wearing a fantasy-adapted Arabian dancer outfit: a short-sleeved gold-trimmed jade green bolero jacket over a jade green crop top with gold arabesque embroidery, a row of small gold coins dangling from the crop top hem, and a bare midriff, a gold coin headband with a short semi-opaque jade green silk veil hanging only down the back of her head behind the bob hair, the veil not wrapping around her face, neck or shoulders, bare neck and shoulders, a jade green hip scarf belt knotted at the side with a gold tassel, lined with rows of small gold coins, flowing semi-sheer jade green chiffon harem pants with side slits, gathered at the ankles, wide gold wrist cuffs and gold anklets with tiny bells, soft pointed gold slippers. Props: tiny coin-sized gold finger cymbals (zills) strapped to the thumb and middle finger of both hands, not large hand-held cymbals, and a long jade green silk dance scarf with both ends wrapped around her wrists. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -270,7 +270,7 @@ Color palette: jade green, gold, deep teal.
 ```
 **POSE_CUTIN**
 ```
-Pose: twirling mid-spin in the air toward the viewer, both arms raised clashing the finger cymbals, silk dance scarf and hip scarf coins swirling around her, big grin.
+Pose: twirling mid-spin in the air toward the viewer, both arms raised snapping the tiny finger cymbals between thumb and middle finger, silk dance scarf and hip scarf coins swirling around her, big grin.
 ```
 **POSE_BATTLE_BACK**
 ```
@@ -281,13 +281,13 @@ Pose: hovering facing away from the viewer toward the enemy, arms raised with fi
 
 **IDENTITY**
 ```
-A cool and aloof male fairy, a young man in his early twenties, 7 heads tall. Calm composed expression, ice blue eyes, long pointed elf ears. Messy frosty pale blue hair. Four moth wings with snowflake crystal patterns, pale ice blue tinted.
+A cool and aloof male fairy, a young man in his early twenties, 7 heads tall. Calm composed expression, ice blue eyes, long pointed elf ears. Messy frosty pale blue hair with bangs partly covering one eye. Four rounded moth wings with snowflake crystal patterns, pale ice blue tinted.
 ```
 **FACE**: FACE_MALE
 
 **OUTFIT**
 ```
-Wearing an Imperial Russian court mage outfit: a long fitted ice blue greatcoat with a double row of silver buttons, silver frog closures and silver snowflake embroidery, a wide dark navy fur collar with fur-trimmed cuffs and hem, long coat skirts at the back, a tall cylindrical dark navy fur hat with a silver snowflake badge, a dark navy sash belt, dark navy gloves and tall polished black boots. Prop: a tall staff of pale blue ice crystal with a sharp crystal cluster at the top. No cape or cloak on the shoulders, wings fully visible.
+Wearing an Imperial Russian court mage outfit: a long fitted ice blue greatcoat with a high stand collar, silver piping along the edges, a double row of silver buttons, silver frog closures and silver snowflake embroidery, snowflake and vine embroidery along the front panel hem, a wide dark navy fur collar with fur-trimmed cuffs and hem, long coat skirts at the back, a tall cylindrical dark navy fur hat with a silver snowflake badge, a dark navy sash belt knotted at the side with hanging ends, dark navy gloves, dark navy trousers tucked into tall polished black boots. Prop: a tall staff made entirely of pale blue ice crystal with a sharp crystal cluster at the top. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -295,7 +295,7 @@ Color palette: ice blue, dark navy, silver, pale cyan.
 ```
 **POSE_CUTIN**
 ```
-Pose: thrusting the ice crystal staff forward toward the viewer with one hand, the other hand raised with fingers spread casting a spell, calm and focused.
+Pose: standing holding the ice crystal staff diagonally in one hand, the other hand raised with fingers spread casting a spell, calm and focused.
 ```
 **POSE_BATTLE_BACK**
 ```
@@ -306,13 +306,13 @@ Pose: standing facing away from the viewer toward the enemy, ice crystal staff r
 
 **IDENTITY**
 ```
-A graceful and serene female fairy, a young adult in her early twenties, 7 heads tall. Gentle calm expression, iridescent violet blue eyes, long pointed elf ears. Very long flowing pastel lavender hair with iridescent highlights. Four large morpho butterfly wings with an iridescent blue sheen shifting into rainbow hues at the edges.
+A graceful and serene female fairy, a young adult in her early twenties, 7 heads tall. Gentle calm expression, iridescent violet blue eyes, long pointed elf ears. Very long flowing pastel lavender hair with iridescent highlights, parted in the center. A small diamond-shaped prism gem on her forehead. Four large morpho butterfly wings with an iridescent blue sheen shifting into rainbow hues at the edges, dark violet wing borders and small swallowtail-like tails on the lower wings.
 ```
 **FACE**: FACE_FEMALE
 
 **OUTFIT**
 ```
-Wearing a fantasy-adapted Korean hanbok celestial maiden (seonnyeo) outfit: a short off-the-shoulder lavender blue jeogori jacket with wide saekdong rainbow-striped sleeves and gold-stamped geumbak patterns, tied at the chest with a long deep violet otgoreum ribbon, a high-waisted chima skirt cut at knee length in front and flowing long at the back, in soft gradient rainbow hues with a sheer lavender chiffon overlayer, soft violet embroidered kkotsin flower shoes, a norigae tassel ornament with a jade piece and a small prism crystal hanging from the waist, a long iridescent lavender silk ribbon draped over her forearms and floating around her body below the shoulders, an ornate gold hwagwan floral crown set with a prism crystal and gold tteoljam trembling hairpins. Props: several small faceted prism crystals in rainbow colors floating in a circle around her. No cape or cloak on the shoulders, wings fully visible.
+Wearing a fantasy-adapted Korean hanbok celestial maiden (seonnyeo) outfit: a short off-the-shoulder lavender blue jeogori jacket with a pale lavender crossed collar band, wide saekdong rainbow-striped sleeves ending in gold-patterned cuff bands, and gold-stamped geumbak patterns, tied at the chest with a long deep violet otgoreum ribbon, a soft rainbow gradient sash at the high waist, a high-waisted chima skirt cut at knee length in front and flowing long at the back, in soft gradient rainbow hues with a sheer lavender chiffon overlayer, soft violet embroidered kkotsin flower shoes, a norigae tassel ornament with a jade piece and a small butterfly charm hanging from the waist, a long iridescent lavender silk ribbon draped over her forearms and floating around her body below the shoulders, an ornate gold hwagwan crown of gold flowers set with a large prism crystal at the center, with several gold tteoljam trembling hairpins fanning out on both sides. Props: several small faceted pale iridescent prism crystals floating in arcs on both sides of her. No cape or cloak on the shoulders, wings fully visible.
 ```
 **PALETTE**
 ```
@@ -320,11 +320,11 @@ Color palette: lavender blue, saekdong rainbow stripes, iridescent rainbow accen
 ```
 **POSE_CUTIN**
 ```
-Pose: floating with both arms open gracefully, guiding the circle of prism crystals around her, eyes gently closed, hair, saekdong sleeves, otgoreum ribbon and silk ribbon flowing softly.
+Pose: floating with both arms open gracefully, guiding the prism crystals floating on both sides of her, eyes gently closed, hair, saekdong sleeves, otgoreum ribbon and silk ribbon flowing softly.
 ```
 **POSE_BATTLE_BACK**
 ```
-Pose: floating facing away from the viewer toward the enemy, arms spread with prism crystals circling her, very long lavender hair with gold hwagwan crown, saekdong sleeves, full chima skirt, floating silk ribbon and large morpho wings clearly visible.
+Pose: floating facing away from the viewer toward the enemy, arms spread with prism crystals floating on both sides of her, very long lavender hair with gold hwagwan crown, saekdong sleeves, full chima skirt, floating silk ribbon and large morpho wings clearly visible.
 ```
 
 ---
@@ -343,9 +343,9 @@ Pose: floating facing away from the viewer toward the enemy, arms spread with pr
 | 카탈리나 | 확정 | 미생성 |
 | 아이아스 | 확정 | 미생성 |
 | 에이린 | 확정 | 미생성 |
-| 셰헤라자드 | 미생성 | 미생성 |
-| 알렉세이 | 미생성 | 미생성 |
-| 다온 | 미생성 | 미생성 |
+| 셰헤라자드 | 확정 | 미생성 |
+| 알렉세이 | 확정 | 미생성 |
+| 다온 | 확정 | 미생성 |
 
 ### 생성 기록
 - 2026-11-03 카엘 컷인 1차 (삭제됨): 남성, 어깨 망토 착용 버전. 화풍 일치 및 화풍 참고 지시문 동작을 확인했으나, 이후 성별 변경(여성)과 망토 금지 규칙(가이드 규칙 10)으로 폐기. 이때 임의 생성된 손가락 없는 장갑, 금색 테두리는 현재 블록에 유지.
@@ -368,3 +368,9 @@ Pose: floating facing away from the viewer toward the enemy, arms spread with pr
 - 2026-11-10 아이아스를 장년(a안)에서 20대 후반 미남 근육질(b안)로 변경. 장년 블록으로 생성한 컷인을 사용자가 보자마자 부적합 판단 (파일 미저장). IDENTITY를 `a young man in his late twenties`, 깔끔하게 면도한 얼굴, 짙은 애쉬 브라운 머리(같은 날 사용자 요청으로 투구 아래로 어깨 너머까지 내려오는 장발로 변경), 온화하고 자신감 있는 미소로 수정하고 FACE_MALE 적용. 8등신 최대 거구는 유지.
 - 2026-11-10 `cutin_aias.png` 확정 (b안 1차): 첨부 `assets/characters/fairy/fairy_base.png`(v4) + 지시문 `Match the art style of the attached image (a different character).` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 아이아스 IDENTITY + FACE_MALE + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 투구 아래 장발, 젊은 미소 얼굴, 딱정벌레 겉날개는 프롬프트대로 생성됨. 생성 당시 OUTFIT은 `transverse crest, pushed up on his head to show his face`, POSE_CUTIN은 방패를 앞으로 내민 방어 자세였으나, 결과에서 얼굴을 덮어 쓴 투구, 앞뒤 방향 세로 볏, 방패를 옆에 든 편한 자세가 생성되어 OUTFIT·POSE_CUTIN·POSE_BATTLE_BACK과 동료 표를 결과에 맞게 수정함. 창 아래쪽 뾰족한 날, 창 든 팔의 남색 천과 팔 보호대도 고정. 체격은 "최대 거구"보다 날씬하게 생성됨.
 - 2026-11-11 `cutin_eirin.png` 확정 (1차): 첨부 `assets/characters/fairy/fairy_base.png`(v4) + 지시문 `Match the art style of the attached image (a different character).` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 에이린 IDENTITY + FACE_FEMALE + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 거의 프롬프트대로 생성됨. 결과에서 시폰 소매를 고정하는 금색 위팔 띠, V넥 켈트 테두리와 앞트임 덧치마, 윗부분이 갈고리처럼 휜 지팡이가 생성되어 OUTFIT에 고정함. 땋은 머리가 어깨 앞으로 넘어와 있어 백뷰 생성 시 등 뒤로 오도록 지정할 것.
+- 2026-11-11 `cutin_scheherazade.png` 1차 생성 (미채택): 베일이 머리 뒤에 걸치는 대신 머리를 감싸고 목·어깨까지 둘러 백뷰에서 날개 뿌리를 가릴 소지(가이드 규칙 10)가 있었고, 핑거 심벌즈 대신 손에 쥐는 큰 심벌즈가 생성됨 → OUTFIT 베일을 `short ... veil hanging only down the back of her head ... not wrapping around her face, neck or shoulders, bare neck and shoulders`로, 심벌즈를 `tiny coin-sized gold finger cymbals (zills) strapped to the thumb and middle finger ..., not large hand-held cymbals`로, POSE_CUTIN을 `snapping the tiny finger cymbals between thumb and middle finger`로 수정.
+- 2026-11-11 `cutin_scheherazade.png` 확정 (2차, 1차 덮어씀): 첨부 `assets/characters/fairy/fairy_base.png`(v4) + 지시문 `Match the art style of the attached image (a different character).` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 셰헤라자드 IDENTITY + FACE_FEMALE + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 베일과 핑거 심벌즈는 수정한 대로 생성됨. 날개가 첨부한 주인공 날개를 따라 금색 기하학 선 무늬로 생성됨(카탈리나와 같은 현상) — 원칙 3과 충돌하나 생성 횟수를 고려해 사용자 판단으로 채택, 필요 시 추후 재생성. IDENTITY를 결과에 맞게 수정 (생성 당시 `Four jade tinted lacewing wings with fine net-like veins.`). 결과에서 크롭 상의 위 금테 짧은 소매 볼레로, 상의 밑단 동전 술, 허리 스카프 옆 매듭과 금색 술, 손목에 감은 춤 스카프 양끝, 넓은 금색 팔찌가 생성되어 OUTFIT에 고정함 (생성 당시 `a jade green cropped bolero top with gold embroidery`, `hip scarf belt lined with rows of small gold coins and tassels`, `gold arm cuffs`).
+- 2026-11-11 `cutin_aleksei.png` 확정 (1차): 첨부 `assets/characters/fairy/fairy_base.png`(v4) + 지시문 `Match the art style of the attached image (a different character). Do not copy the wings of the attached image; draw the wings exactly as described in the text.` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 알렉세이 IDENTITY + FACE_MALE + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 날개 지시문(가이드 규칙 1 추가분) 첫 적용 — 날개가 주인공 날개를 따르지 않고 프롬프트대로 눈꽃 무늬로 생성됨. 날개는 나방형보다 끝이 둥근 형태. 결과에서 높은 스탠드 칼라, 코트 테두리 은색 파이핑, 앞판 밑단 눈꽃·덩굴 자수, 옆으로 묶어 늘어뜨린 허리띠, 장화에 넣어 입은 남색 바지, 한쪽 눈을 살짝 가리는 앞머리, 자루까지 얼음 결정인 지팡이가 생성되어 IDENTITY/OUTFIT에 고정함. 지팡이를 앞으로 내지르는 대신 비스듬히 든 선 자세로 생성되어 POSE_CUTIN 수정.
+- 2026-11-11 `cutin_daon.png` 확정 (1차): 첨부 `assets/characters/fairy/fairy_base.png`(v4) + 지시문 `Match the art style of the attached image (a different character). Do not copy the wings of the attached image; draw the wings exactly as described in the text.` + LAYER_SPRITE_HEAD + VIEW_ILLUST + 다온 IDENTITY + FACE_FEMALE + OUTFIT + POSE_CUTIN + PALETTE + STYLE_BASE + LAYER_SPRITE_TAIL. 날개는 프롬프트대로 무지갯빛 모르포 날개로 생성됨. 다른 컷인보다 선이 가늘고 파스텔 톤으로 평평하여 STYLE_BASE(굵은 잉크 선, 강한 명암, 붓 터치)가 약하게 반영됨 — 사용자 판단으로 채택, 필요 시 추후 재생성 (재생성 시 `Keep the same thick dark ink outlines and strong chiaroscuro shading as the attached image.` 지시문 추가 검토). 결과에서 정수리를 따라 땋은 머리, 날개 어두운 보라 테두리와 아래 날개의 제비꼬리형 돌기, 저고리 교차 깃(동정), 소매 끝 금색 띠, 무지개 그라데이션 허리띠가 생성되어 IDENTITY/OUTFIT에 고정함. 프리즘 결정이 원형으로 돌지 않고 양옆에 흩어져 생성되어 OUTFIT 소품과 POSE_CUTIN 수정 (생성 당시 `floating in a circle around her`, `guiding the circle of prism crystals around her`).
+- 2026-11-11 `cutin_daon.png` 교체 (사용자가 같은 프롬프트로 Gemini에서 새로 뽑은 이미지, 위 1차 덮어씀): 구도·포즈·복장·화풍(파스텔, 가는 선)은 1차와 거의 같음. 결과에서 이마의 마름모 프리즘 보석, 금 꽃송이 화관과 양옆으로 펼친 여러 개의 떨잠, 노리개의 작은 나비 장식, 연한 무지갯빛 투명 결정이 양옆에 호를 그리며 뜬 배치, 가운데 가르마가 생성되어 IDENTITY/OUTFIT에 고정함. 1차 기준으로 고정했던 정수리 땋은 머리는 이번 결과에서 보이지 않아 삭제, 노리개의 프리즘 결정은 나비 장식으로 교체.
+- 2026-11-11 `battle_back_kasumi.png` 시험 생성 3회 (모두 미채택, 첨부 `cutin_kasumi.png` + 지시문 `Same character as the attached image.`): 1차 — 몸은 오른쪽을 향하고 고개를 어깨 너머로 돌려 옆얼굴이 보임. 2차 — battle_back에서 FACE 블록 제외 + VIEW_BATTLE_BACK에 몸·머리 방향 일치·얼굴 비노출 문장 추가, 얼굴은 가려졌으나 몸이 오른쪽 위 대각선을 향함 (1차와 구도 거의 동일). 3차 — `Rear back view`로 바꾸고 화면 위쪽으로 곧게 향하는 문장 추가, 방향은 맞았으나 몸통·팔이 날개 위에 그려져 날개가 가슴 쪽에 달린 앞뒤 관계가 됨 (`assets/test/battle_back_kasumi_v3_test.png`). 이후 날개가 등 위(보는 사람 쪽)에 겹쳐 그려지도록 하는 문장을 VIEW_BATTLE_BACK에 추가했으나 생성 전 중단. 사용자 판단으로 다음 세션에 뒷모습 일러를 처음부터(접근 방식 재검토) 다시 시작한다. 체크리스트는 `미생성` 유지.

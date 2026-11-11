@@ -11,7 +11,7 @@
 ```
 [LAYER_SPRITE_HEAD] + [VIEW] + [캐릭터 IDENTITY] + [FACE] + [캐릭터 OUTFIT] + [POSE] + [PALETTE] + [STYLE_BASE] + [LAYER_SPRITE_TAIL]
 ```
-- `[FACE]`는 동료 캐릭터 시트(`docs/art_prompts/partners.md` 3장)의 FACE 블록을 쓴다. 주인공은 IDENTITY에 얼굴 묘사가 포함되어 있고, 몬스터/보스와 장년 컨셉 동료는 생략한다.
+- `[FACE]`는 동료 캐릭터 시트(`docs/art_prompts/partners.md` 3장)의 FACE 블록을 쓴다. 주인공은 IDENTITY에 얼굴 묘사가 포함되어 있고, 몬스터/보스와 장년 컨셉 동료는 생략한다. `VIEW_BATTLE_BACK` 에셋은 얼굴이 보이지 않아야 하므로 FACE 블록을 넣지 않는다 (2026-11-11 추가: FACE 블록이 고개를 돌려 얼굴을 보이게 만드는 원인으로 판단).
 
 ### 1.2 배경 (`--rembg` 미사용)
 ```
@@ -54,8 +54,9 @@ Full body character illustration, entire figure inside the frame from head to fe
   ```
 - **VIEW_BATTLE_BACK** (인게임 플레이어 필드 2.5D 백뷰)
   ```
-  Rear three-quarter back view, seen from behind and slightly above, character facing away from the viewer toward the upper screen, 2.5D game sprite.
+  Rear back view, seen from behind and slightly above, character facing away from the viewer toward the upper screen, 2.5D game sprite. Body and head pointing straight up toward the top of the screen, back fully facing the viewer, not angled to the side. The head is not turned back over the shoulder: only the back of the head and hair are visible, the face is not visible. The wings grow out of the upper back between the shoulder blades, on the side closest to the viewer: the wing roots and wings are drawn in front of the back, overlapping the back and shoulders, not hidden behind the body.
   ```
+  - 2026-11-11 보강: `battle_back_kasumi.png` 1차 시험에서 몸은 오른쪽을 향하고 고개는 어깨 너머로 돌려 옆얼굴이 보이는 구도로 생성됨 → 몸·머리 방향 일치와 얼굴 비노출 문장 추가. 2차에서 얼굴은 가려졌으나 몸이 오른쪽 위 대각선을 향함 → `Rear three-quarter back view`를 `Rear back view`로 바꾸고 몸·머리를 화면 위쪽으로 곧게 향하게 하는 문장으로 교체. 3차에서 방향은 맞았으나 몸통·팔이 날개 위에 그려져 날개가 가슴 쪽에 달린 정면 구도의 앞뒤 관계가 됨 → 날개가 견갑골 사이에서 나와 등 위(보는 사람 쪽)에 겹쳐 그려지도록 하는 문장 추가.
 - **VIEW_MONSTER** (몬스터/보스, 3×3 노드 앵커 매핑용)
   ```
   Orthographic 2D front view, facing the viewer directly, symmetrical framing.
@@ -100,6 +101,7 @@ Subtle canvas and aged paper grain texture.
 1. **기준 이미지 첨부:** 기준 이미지를 첨부하는 에셋은 용도에 맞는 지시문을 **프롬프트 맨 앞에 포함하여** `asset_bridge.py`에 전달한다 (사용자가 별도로 붙이지 않도록 클립보드 복사본에 포함).
    - 같은 캐릭터의 변형(포즈/코스튬/백뷰): 해당 캐릭터의 기준 이미지 첨부 + `Same character as the attached image.`
    - 다른 캐릭터의 화풍 참고(동료/몬스터/보스 첫 생성): `assets/characters/fairy/fairy_base.png` 첨부 + `Match the art style of the attached image (a different character).`
+     - 날개 캐릭터는 뒤에 `Do not copy the wings of the attached image; draw the wings exactly as described in the text.`를 붙인다. (2026-11-11 추가: 카탈리나·셰헤라자드 컷인에서 날개가 첨부한 주인공 날개의 연한 색·기하학 선 무늬를 따라 생성됨)
    - 실행 시 사용자에게 어떤 이미지를 첨부해야 하는지 함께 안내한다.
 2. **새 채팅에서 생성:** 이전 생성 결과에 구도가 끌려가지 않도록 에셋마다 새 채팅에서 생성한다.
 3. **바닥 상호작용 포즈 금지:** 스프라이트는 바닥 없이 생성되므로 "땅에 꽂기", "앉기", "기대기" 등 바닥/사물과 닿는 포즈는 반영되지 않는다. 공중 또는 선 자세로 표현 가능한 동작만 쓴다.
@@ -138,5 +140,7 @@ Subtle canvas and aged paper grain texture.
 | 2026-11-04 | `assets/test/fairy_base_softface_3d_test.png`, `_v2_test.png` | 첨부 + "얼굴 선 약화, 몸 그림자 강화" 지시. v2는 광원 방향까지 지정. 얼굴은 약간 부드러워졌으나 그림자 변화 없음 → 규칙 11 보강. `fairy_base_softface_3d_test.png`를 기준 이미지 v4로 채택 |
 | 2026-11-10 | (카밀라 얼굴 테스트, 파일 미저장) | 동료가 나이 들어 보이는 원인을 STYLE_BASE가 아닌 IDENTITY 얼굴 묘사로 판단(주인공은 같은 STYLE로 합격). 성숙 인상 단어 제거 + 애니풍 FACE 블록 추가로 얼굴이 크게 개선됨 → 동료 FACE 블록 신설 |
 | 2026-11-10 | `assets/test/cutin_camilla_outfit_test.png` | FACE 블록 + 판타지 각색 OUTFIT(오프숄더 미니 드레스, 니삭스 등). 요정다운 가벼운 복장으로 개선되어 채택 → 동료 원칙 1에 판타지 각색 추가. 날개 망토 지시는 미반영 |
+| 2026-11-11 | `cutin_scheherazade.png`, `cutin_catalina.png` | 기준 이미지(`fairy_base.png`) 첨부 시 날개가 주인공 날개의 연한 색·기하학 선 무늬를 따라 생성됨 → 규칙 1에 날개 캐릭터용 문장 추가. 이후 `cutin_aleksei.png`, `cutin_daon.png`에서 날개가 텍스트대로 생성되어 효과 확인 |
+| 2026-11-11 | `assets/test/battle_back_kasumi_v3_test.png` | 컷인 첨부 백뷰 시험 3회 실패: 옆얼굴 노출 → 대각선 방향 → 방향은 맞으나 날개가 몸 뒤에 가려진 정면식 앞뒤 관계. VIEW_BATTLE_BACK 보강 및 battle_back FACE 블록 제외. 보강한 블록(날개 앞뒤 관계 문장 포함)은 미검증이며, 다음 세션에 백뷰 접근 방식을 처음부터 재검토 |
 
 ※ 위 테스트 이미지는 2026-11-03 정리 시 `assets/test/`에서 삭제되었다. `fairy_base_sprite_test.png`, `lobby_fairy_idle_A_test.png`는 커밋 `cd7268e`에서 확인할 수 있으며, 나머지는 커밋되지 않은 중간 결과물이다. 확정 이미지는 각 캐릭터 시트의 체크리스트 경로를 따른다.
