@@ -3,7 +3,7 @@
 - 저장 폴더: `assets/characters/partners/`
 - 파일 규격: `cutin_[영문명].png` (VIEW_ILLUST), `battle_back_[영문명].png` (VIEW_BATTLE_BACK)
 - 공통 블록(STYLE_BASE, VIEW, LAYER) 및 작업 규칙은 `docs/art_style_guide.md`를 따른다.
-- 생성 순서: 동료마다 `cutin`을 먼저 확정하고, 이를 기준 이미지로 첨부하여 `battle_back`을 생성한다.
+- 생성 순서: 동료마다 `cutin`을 먼저 확정한 뒤 `battle_back`을 생성한다. `battle_back`에는 `cutin`을 첨부하지 않는다 (가이드 규칙 8).
 
 ---
 
@@ -41,7 +41,7 @@
 
 블록 조합: `[LAYER_SPRITE_HEAD] + [VIEW] + [IDENTITY] + [FACE] + [OUTFIT] + [POSE] + [PALETTE] + [STYLE_BASE] + [LAYER_SPRITE_TAIL]`
 - `cutin`: VIEW_ILLUST + POSE_CUTIN (첨부: `fairy_base.png`, 지시문: 화풍 참고)
-- `battle_back`: VIEW_BATTLE_BACK + POSE_BATTLE_BACK (첨부: 확정된 `cutin`, 지시문: 같은 캐릭터)
+- `battle_back`: 가이드 1.1.1 조합 (VIEW_BATTLE_BACK + IDENTITY_BACK + OUTFIT_BACK + POSE_BATTLE_BACK + STYLE_BASE_BACK, FACE 없음). 첨부: `assets/characters/fairy/fairy_battle_back.png`, 지시문: `Match the art style and composition of the attached image (a different character).` (검증 전, 가이드 규칙 8). 동료별 IDENTITY_BACK/OUTFIT_BACK은 백뷰 생성 시 작성하고, 아래 POSE_BATTLE_BACK도 그때 대기 자세(공중 제자리, 오른쪽 위 주시)로 다시 쓴다.
 - FACE는 캐릭터별 블록에 적힌 종류를 쓴다. 비요른은 FACE 없이 조합한다.
 
 **FACE_FEMALE** (여성 동료 공통)
