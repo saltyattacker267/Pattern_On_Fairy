@@ -19,14 +19,16 @@
   // 모델
   var bus = new POF.EventBus();
   var inputGrid = new POF.PatternGrid(V.width / 2, botCy, V.gridSpacing, V.nodeHitRadius);
-  var mirrorGrid = new POF.PatternGrid(V.width / 2, V.mirrorCenterY, V.mirrorSpacing, 0);
+  // 상단 미러 그리드 레이아웃은 FieldRenderer가 몬스터 위치에 맞춰 매 프레임 갱신한다
+  var mirrorGrid = new POF.PatternGrid(V.width / 2, (V.fieldTop + V.fieldBottom) / 2, V.gridSpacing, 0);
   var path = new POF.PatternPath(B.pattern.closeMinNodes);
-  var combat = new POF.TestCombat(B, POF.Patterns.bosses, bus);
+  var combat = new POF.StageCombat(B, POF.Monsters.stages, POF.Patterns.bosses, bus);
   var drag = { active: false, x: 0, y: 0 };
+  var strokeLocked = false; // 정타/Miss 판정 후 릴리즈 전까지 추가 드로잉 차단
 
   // 뷰 (이벤트 구독을 위해 전투 시작 전에 생성)
-  var fieldRenderer = new POF.FieldRenderer(V, combat, mirrorGrid, bus);
-  var gridRenderer = new POF.GridRenderer(inputGrid, mirrorGrid, path, drag);
+  var fieldRenderer = new POF.FieldRenderer(V, combat, mirrorGrid, bus, B.stage.moveSec);
+  var gridRenderer = new POF.GridRenderer(inputGrid, mirrorGrid, path, drag, combat);
 
   var renderScale = 1;
 
@@ -42,49 +44,67 @@
     B.time.maxDeltaSec
   );
 
-  // 드래그 구간 동안 지나간 노드를 궤적에 반영
+  // 드래그 구간 동안 지나간 노드를 궤적에 반영하고, 궤적이 바뀔 때마다 즉시 판정한다
   function feedSegment(x0, y0, x1, y1) {
+    if (strokeLocked) return;
     var count = inputGrid.collectSegmentHits(x0, y0, x1, y1);
     for (var i = 0; i < count; i++) {
-      path.tryAdd(inputGrid.hitNodes[i]);
+      if (!path.tryAdd(inputGrid.hitNodes[i])) continue;
+      var result = combat.judgeStroke(path.nodes, path.length);
+      if (result === POF.StageCombat.STROKE_PROGRESS) continue;
+      strokeLocked = true;
+      // 정타는 홀딩 중 궤적을 유지해 보여주고, 그 외에는 즉시 지운다
+      if (result !== POF.StageCombat.STROKE_HIT) path.reset();
+      return;
     }
+  }
+
+  // 홀딩 중 손가락이 마지막 노드 판정 반경을 벗어나면 홀딩 취소 (페널티 없음)
+  function checkHoldLeave(x, y) {
+    if (!combat.isHolding()) return;
+    var last = path.lastNode();
+    var dx = x - inputGrid.x[last];
+    var dy = y - inputGrid.y[last];
+    var r = inputGrid.hitRadius;
+    if (dx * dx + dy * dy > r * r) combat.cancelHold();
   }
 
   function endDrag() {
     drag.active = false;
-    loop.timeScale = B.time.normalScale;
+    strokeLocked = false;
+    combat.cancelHold();
+    path.reset();
   }
 
   var input = new POF.PointerInput(canvas, {
     onDown: function (x, y) {
       if (y < botTop) return false; // 컨트롤 존에서만 드로잉 시작
       path.reset();
+      strokeLocked = false;
+      combat.cancelHold();
       drag.active = true;
       drag.x = x;
       drag.y = y;
       feedSegment(x, y, x, y);
-      loop.timeScale = B.time.dragSlowScale;
       return true;
     },
     onMove: function (x, y) {
       if (!drag.active) return;
       feedSegment(drag.x, drag.y, x, y);
+      checkHoldLeave(x, y);
       drag.x = x;
       drag.y = y;
     },
     onUp: function (x, y) {
       if (!drag.active) return;
       feedSegment(drag.x, drag.y, x, y);
+      // 판정 전 릴리즈 = 중도 포기 (노드를 하나라도 거쳤으면 Miss)
+      if (!strokeLocked) combat.releaseStroke(path.length);
       endDrag();
-      // 최소 노드 수 미만은 판정하지 않고 무시
-      if (path.distinctCount() >= B.pattern.minNodes) {
-        combat.submit(path.nodes, path.length);
-      }
-      path.reset();
     },
     onCancel: function () {
+      // 시스템 취소(pointercancel 등)는 유저 릴리즈가 아니므로 판정하지 않는다
       endDrag();
-      path.reset();
     }
   }, B.input.ghostTouchGuardMs);
 
@@ -110,11 +130,11 @@
   window.addEventListener('orientationchange', resize);
 
   // 디버그: 스테이지 선택 버튼 (데이터 기반 생성)
-  var bosses = POF.Patterns.bosses;
-  for (var i = 0; i < bosses.length; i++) {
+  var stages = POF.Monsters.stages;
+  for (var i = 0; i < stages.length; i++) {
     var btn = document.createElement('button');
     btn.type = 'button';
-    btn.textContent = bosses[i].stage;
+    btn.textContent = stages[i].stage;
     btn.setAttribute('data-stage', String(i));
     btn.addEventListener('click', function (e) {
       if (drag.active) return;
@@ -122,6 +142,16 @@
     });
     debugBar.appendChild(btn);
   }
+
+  // 디버그: 현재 스테이지 보스 웨이브로 건너뛰기
+  var bossBtn = document.createElement('button');
+  bossBtn.type = 'button';
+  bossBtn.textContent = 'BOSS';
+  bossBtn.addEventListener('click', function () {
+    if (drag.active) return;
+    combat.debugSkipToBoss();
+  });
+  debugBar.appendChild(bossBtn);
 
   resize();
   combat.startStage(0);

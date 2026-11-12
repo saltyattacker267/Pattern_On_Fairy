@@ -5,12 +5,14 @@
 
   POF.Events = {
     STAGE_STARTED: 'stageStarted',   // (stageIndex)
-    STAGE_CLEARED: 'stageCleared',   // (stageIndex)
+    STAGE_CLEARED: 'stageCleared',   // (stageIndex, clearTimeSec)
     PLAYER_DEAD: 'playerDead',       // (stageIndex)
     PLAYER_HP: 'playerHp',           // (hp, maxHp)
-    BOSS_HP: 'bossHp',               // (hp, maxHp)
-    BOSS_PHASE: 'bossPhase',         // (phaseIndex)
-    BOSS_ATTACK: 'bossAttack',       // (damage)
+    MONSTER_SPAWNED: 'monsterSpawned', // (waveIndex, kind)
+    MONSTER_HP: 'monsterHp',         // (hp, maxHp)
+    MONSTER_PATTERN: 'monsterPattern', // (formIndex 또는 보스 phaseIndex) 목표 궤적 변경
+    MONSTER_ATTACK: 'monsterAttack', // (damage)
+    MONSTER_KILLED: 'monsterKilled', // (waveIndex)
     PATTERN_HIT: 'patternHit',       // (damage)
     PATTERN_MISS: 'patternMiss'      // (penalty)
   };

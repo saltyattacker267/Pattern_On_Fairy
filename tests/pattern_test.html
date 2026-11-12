@@ -14,10 +14,14 @@
   <div id="summary"></div>
   <div id="log"></div>
 
+  <script src="../js/config/balance.js"></script>
   <script src="../js/config/patterns.js"></script>
+  <script src="../js/config/monsters.js"></script>
+  <script src="../js/core/EventBus.js"></script>
   <script src="../js/pattern/PatternGrid.js"></script>
   <script src="../js/pattern/PatternPath.js"></script>
   <script src="../js/pattern/PatternMatcher.js"></script>
+  <script src="../js/combat/StageCombat.js"></script>
   <script id="testScript">
   (function (POF) {
     'use strict';
@@ -139,6 +143,231 @@
     // 4. 오입력
     check('다른 패턴 오답: 4-5-6 vs 1-2-3', !M.matches([1, 2, 3], 3, [4, 5, 6]));
     check('같은 노드 다른 순서 오답: 4-6-5 vs 4-5-6', !M.matches([4, 6, 5], 3, [4, 5, 6]));
+
+    // 5. 드로잉 중 판정 (On-Reach / 즉시 Miss)
+    var golemP1 = [3, 2, 1, 4, 7, 8, 9];
+    check('진행: 빈 입력은 진행 중', M.progress([], 0, golemP1) === M.PROGRESS);
+    check('진행: 정방향 앞부분 3-2-1', M.progress([3, 2, 1], 3, golemP1) === M.PROGRESS);
+    check('진행: 역방향 앞부분 9-8', M.progress([9, 8], 2, golemP1) === M.PROGRESS);
+    check('진행: 정방향 완성 = COMPLETE', M.progress(golemP1, 7, golemP1) === M.COMPLETE);
+    check('진행: 역방향 완성 = COMPLETE', M.progress([9, 8, 7, 4, 1, 2, 3], 7, golemP1) === M.COMPLETE);
+    check('진행: 시작 노드가 양끝이 아니면 이탈', M.progress([2], 1, golemP1) === M.DEVIATE);
+    check('진행: 중간에 어긋나면 이탈 3-2-5', M.progress([3, 2, 5], 3, golemP1) === M.DEVIATE);
+    check('진행: 목표보다 길면 이탈', M.progress([4, 5, 6, 3], 4, [4, 5, 6]) === M.DEVIATE);
+    var spider = [2, 4, 7, 8, 9, 6, 2];
+    check('진행(닫힘): 고리 중간 노드에서 시작 8-9', M.progress([8, 9], 2, spider) === M.PROGRESS);
+    check('진행(닫힘): 역방향 8-7-4', M.progress([8, 7, 4], 3, spider) === M.PROGRESS);
+    check('진행(닫힘): 다른 시작점 닫힘 완성', M.progress([8, 9, 6, 2, 4, 7, 8], 7, spider) === M.COMPLETE);
+    check('진행(닫힘): 고리 밖 노드 5는 이탈', M.progress([5], 1, spider) === M.DEVIATE);
+    check('진행(닫힘): 건너뛴 연결 8-6은 이탈', M.progress([8, 6], 2, spider) === M.DEVIATE);
+    // 모든 보스 패턴: 완성 직전까지 PROGRESS, 완성 시 COMPLETE
+    var allProgressOk = true;
+    for (b = 0; b < bosses.length; b++) {
+      for (ph = 0; ph < bosses[b].phases.length; ph++) {
+        var tg = bosses[b].phases[ph].nodes;
+        for (var len = 1; len < tg.length; len++) {
+          if (M.progress(tg, len, tg) !== M.PROGRESS) allProgressOk = false;
+        }
+        if (M.progress(tg, tg.length, tg) !== M.COMPLETE) allProgressOk = false;
+      }
+    }
+    check('진행: 전 보스 패턴 앞부분 PROGRESS / 완성 COMPLETE', allProgressOk);
+
+    // 6. 몬스터 데이터 유효성
+    var stages = POF.Monsters.stages;
+    var grades = POF.Balance.grades;
+    check('몬스터 스테이지 수 = 보스 수', stages.length === bosses.length);
+    for (var si = 0; si < stages.length; si++) {
+      var st = stages[si];
+      var slabel = 'S' + st.stage;
+      check(slabel + ' 그리드 최소 3x3', st.grid.cols >= 3 && st.grid.rows >= 3);
+      var keys = ['normal', 'elite', 'assault'];
+      var seen = {};
+      var dupOk = true;
+      var allPats = [];
+      for (var ki = 0; ki < keys.length; ki++) {
+        var md = st[keys[ki]];
+        check(slabel + ' ' + md.id + ' 등급 정의 존재', !!grades[md.grade]);
+        for (var fi = 0; fi < md.forms.length; fi++) allPats.push(md.forms[fi].nodes);
+      }
+      for (ph = 0; ph < bosses[si].phases.length; ph++) allPats.push(bosses[si].phases[ph].nodes);
+      for (var pi = 0; pi < allPats.length; pi++) {
+        var pt = allPats[pi];
+        var pb = build(pt);
+        check(slabel + ' [' + pt.join('-') + '] 데이터가 연결 규칙과 일치',
+          seqStr(pb.nodes, pb.length) === pt.join('-') && pb.closed === M.isClosed(pt, pt.length));
+        var key1 = pt.join('-');
+        var key2 = pt.slice().reverse().join('-');
+        if (seen[key1] || seen[key2]) dupOk = false;
+        seen[key1] = true;
+      }
+      check(slabel + ' 스테이지 내 정/역방향 중복 궤적 없음', dupOk);
+    }
+
+    // 7. 전투: On-Reach 타격, 링 가산, 홀딩 연타, 릴리즈 Miss (스테이지 1 보스 골렘)
+    var SC = POF.StageCombat;
+    var cfg = POF.Balance.combat;
+    var scfg = POF.Balance.stage;
+    function newCombat(stageIndex, bus) {
+      var c2 = new SC(POF.Balance, stages, bosses, bus || new POF.EventBus());
+      c2.startStage(stageIndex || 0);
+      return c2;
+    }
+    function bossCombat(stageIndex, bus) {
+      var c2 = newCombat(stageIndex, bus);
+      c2.debugSkipToBoss();
+      return c2;
+    }
+    // 지정한 종류의 몬스터를 현재 웨이브에 강제 배치
+    function spawnKind(c2, kind) {
+      c2.waveKinds[0] = kind;
+      c2._spawn(0);
+    }
+    // 난수 큐 주입
+    function queueRandom(c2, values) {
+      var q = values.slice();
+      c2.random = function () { return q.length > 0 ? q.shift() : 0; };
+    }
+    function approx(a, b2) { return Math.abs(a - b2) < 1e-6; }
+    var c;
+    var bossRing = grades.boss.ringSec;
+
+    c = bossCombat(0);
+    check('전투: 보스 웨이브는 10번째', c.waveIndex === 9 && c.isBoss());
+    check('전투: 진행 중 입력은 PROGRESS', c.judgeStroke([3, 2], 2) === SC.STROKE_PROGRESS);
+    check('전투: 완성 즉시 HIT', c.judgeStroke(golemP1, 7) === SC.STROKE_HIT);
+    check('전투: 타격 후 보스 HP 감소', approx(c.hp, 5.0 - cfg.baseAttack));
+    check('전투: 타격 후 홀딩 시작', c.isHolding());
+
+    c = bossCombat(0);
+    c.update(1.0);
+    c.judgeStroke(golemP1, 7);
+    check('전투: 링 잔여 시간 +0.5초 가산', approx(c.ringTimer, bossRing - 1.0 + cfg.staggerAddSec));
+    c = bossCombat(0);
+    c.judgeStroke(golemP1, 7);
+    check('전투: 링 가산은 등급 최대치 상한', approx(c.ringTimer, bossRing));
+
+    c = bossCombat(0);
+    c.judgeStroke(golemP1, 7);
+    c.update(cfg.holdRepeatSec - 0.01);
+    check('전투: 홀딩 완충 전에는 재타격 없음', approx(c.hp, 4.5));
+    c.update(0.02);
+    check('전투: 홀딩 1.5초마다 자동 재타격', approx(c.hp, 4.0) && c.isHolding());
+
+    c = bossCombat(0);
+    c.judgeStroke(golemP1, 7);
+    c.cancelHold();
+    c.update(cfg.holdRepeatSec + 0.1);
+    check('전투: 홀딩 취소 시 재타격·페널티 없음', approx(c.hp, 4.5) && approx(c.playerHp, cfg.playerMaxHp));
+
+    // P1(5.0~3.5): 3회 타격으로 HP 3.5 -> P2 전환, 홀딩 경고 후 완충 시 Miss
+    // (그 사이 공격 링 만료로 보스 공격도 들어오므로 HP 대신 Miss 이벤트 수로 확인)
+    var missBus = new POF.EventBus();
+    var missCount = 0;
+    missBus.on(POF.Events.PATTERN_MISS, function () { missCount++; });
+    c = bossCombat(0, missBus);
+    c.judgeStroke(golemP1, 7);
+    c.update(cfg.holdRepeatSec);
+    check('전투: 패턴 유지 중에는 경고 없음', !c.holdWarning());
+    c.update(cfg.holdRepeatSec);
+    check('전투: 페이즈 전환 후 홀딩 붉은 경고', c.phaseIndex === 1 && c.holdWarning());
+    c.update(cfg.holdRepeatSec);
+    check('전투: 경고 상태 완충 시 Miss', !c.isHolding() && missCount === 1 && approx(c.hp, 3.5));
+
+    c = bossCombat(0);
+    check('전투: 경로 이탈 즉시 MISS', c.judgeStroke([3, 2, 5], 3) === SC.STROKE_MISS && approx(c.playerHp, cfg.playerMaxHp - cfg.missPenalty));
+    c = bossCombat(0);
+    c.releaseStroke(1);
+    check('전투: 노드 1개 터치 후 릴리즈도 Miss', approx(c.playerHp, cfg.playerMaxHp - cfg.missPenalty));
+    c = bossCombat(0);
+    c.releaseStroke(0);
+    check('전투: 노드 미접촉 릴리즈는 무시', approx(c.playerHp, cfg.playerMaxHp));
+
+    // 8. 스테이지 진행
+    var mix = scfg.waveMix;
+    var compOk = true;
+    for (var trial = 0; trial < 20; trial++) {
+      c = newCombat(0);
+      var cnt = [0, 0, 0, 0];
+      for (var wi = 0; wi < c.waveCount; wi++) cnt[c.waveKinds[wi]]++;
+      if (cnt[SC.KIND_NORMAL] !== mix.normal || cnt[SC.KIND_ELITE] !== mix.elite ||
+          cnt[SC.KIND_ASSAULT] !== mix.assault || cnt[SC.KIND_BOSS] !== 1 ||
+          c.waveKinds[c.waveCount - 1] !== SC.KIND_BOSS) compOk = false;
+    }
+    check('진행: 웨이브 10개, 비율 5/2/2 + 마지막 보스', compOk && c.waveCount === 10);
+
+    c = newCombat(0);
+    spawnKind(c, SC.KIND_NORMAL);
+    check('진행: 첫 웨이브 전투 시작', c.state === SC.STATE_BATTLE && c.waveIndex === 0);
+    c.judgeStroke(c.currentPattern(), c.currentPattern().length);
+    check('진행: 모스 페블(0.5) 1타 처치 후 등장 대기', c.state === SC.STATE_SPAWN && !c.isHolding());
+    c.update(scfg.spawnDelaySec + 0.01);
+    check('진행: 대기 후 다음 웨이브 등장', c.state === SC.STATE_BATTLE && c.waveIndex === 1);
+    check('진행: 대기 시간도 경과 시간에 포함', c.elapsed > scfg.spawnDelaySec);
+
+    var clearTime = -1;
+    var clearBus = new POF.EventBus();
+    clearBus.on(POF.Events.STAGE_CLEARED, function (idx, t) { clearTime = t; });
+    c = bossCombat(0, clearBus);
+    c.update(0.5);
+    c.hp = 0.5;
+    c.judgeStroke(c.currentPattern(), c.currentPattern().length);
+    check('진행: 보스 처치 시 스테이지 클리어 + 클리어 시간 전달', c.state === SC.STATE_CLEAR && approx(clearTime, c.elapsed) && clearTime > 0);
+
+    c = newCombat(1);
+    spawnKind(c, SC.KIND_ELITE);
+    check('진행: 암살 등급 공격 링 2.5초', approx(c.ringMax, 2.5) && approx(c.ringTimer, 2.5));
+
+    // 9. 폼 모핑 (Soft Pity) - 스테이지 5 페이지 임프(폼 2종, HP 2.5)
+    c = newCombat(4);
+    queueRandom(c, [0]);
+    spawnKind(c, SC.KIND_NORMAL);
+    var pat0 = c.currentPattern();
+    queueRandom(c, [0.6, 0]);
+    c.judgeStroke(pat0, pat0.length);
+    check('모핑: 최초 유지 확률 0.5 초과 시 전환', c.formIndex === 1 && c.formStreak === 0);
+    check('모핑: 폼 전환 시 홀딩 붉은 경고', c.holdWarning());
+    c.cancelHold();
+    queueRandom(c, [0.1]);
+    c.judgeStroke(c.currentPattern(), c.currentPattern().length);
+    check('모핑: 유지 1회 (확률 0.5)', c.formIndex === 1 && c.formStreak === 1);
+    check('모핑: 같은 폼 유지 시 경고 없음', !c.holdWarning());
+    c.cancelHold();
+    queueRandom(c, [0.2]);
+    c.judgeStroke(c.currentPattern(), c.currentPattern().length);
+    check('모핑: 연속 유지 2회 (확률 0.25)', c.formIndex === 1 && c.formStreak === 2);
+    c.cancelHold();
+    queueRandom(c, [0, 0]);
+    c.judgeStroke(c.currentPattern(), c.currentPattern().length);
+    check('모핑: 2회 연속 유지 후 강제 전환', c.formIndex === 0 && c.formStreak === 0);
+
+    // 폼 3종 - 스테이지 5 공허 갑주 망령 (HP 5.0)
+    c = newCombat(4);
+    queueRandom(c, [0]);
+    spawnKind(c, SC.KIND_ELITE);
+    queueRandom(c, [0.5, 0.99]);
+    c.judgeStroke(c.currentPattern(), c.currentPattern().length);
+    check('모핑(3종): 전환 시 현재 폼 제외 추첨', c.formIndex === 2);
+
+    // 10. 보스 위치 이동
+    c = bossCombat(0);
+    c.judgeStroke(golemP1, 7);
+    check('이동: 3x3 그리드(스테이지 1) 보스는 위치 고정', c.posCol === 0 && c.posRow === 0);
+    c = bossCombat(1);
+    var beforeCol = c.posCol;
+    var wyvernP1 = c.currentPattern();
+    c.judgeStroke(wyvernP1, wyvernP1.length);
+    check('이동: 4x3 그리드 보스는 피격 시 다른 위치로 이동', c.posCol !== beforeCol && c.posRow === 0);
+    check('이동: 위치만 바뀌면 홀딩 경고 없음', c.isHolding() && !c.holdWarning());
+    var posOk = true;
+    c = bossCombat(4);
+    for (var mv = 0; mv < 30; mv++) {
+      var prevIdx = c.posRow * 4 + c.posCol;
+      c._placeRandom(prevIdx);
+      if (c.posCol < 0 || c.posCol > 3 || c.posRow < 0 || c.posRow > 1) posOk = false;
+      if (c.posRow * 4 + c.posCol === prevIdx) posOk = false;
+    }
+    check('이동: 6x4 그리드 이동 위치가 범위 내이며 매번 다름', posOk);
 
     // 출력 (브라우저 / 콘솔 공용)
     var summary = (failed === 0 ? 'ALL PASS' : 'FAIL') + '  passed=' + passed + ' failed=' + failed;
