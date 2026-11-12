@@ -41,7 +41,9 @@
 
 블록 조합: `[LAYER_SPRITE_HEAD] + [VIEW] + [IDENTITY] + [FACE] + [OUTFIT] + [POSE] + [PALETTE] + [STYLE_BASE] + [LAYER_SPRITE_TAIL]`
 - `cutin`: VIEW_ILLUST + POSE_CUTIN (첨부: `fairy_base.png`, 지시문: 화풍 참고)
-- `battle_back`: 가이드 1.1.1 조합 (VIEW_BATTLE_BACK + IDENTITY_BACK + OUTFIT_BACK + POSE_BATTLE_BACK + STYLE_BASE_BACK, FACE 없음). 첨부: `assets/characters/fairy/fairy_battle_back.png`, 지시문: `Match the art style and composition of the attached image (a different character). Only the camera angle, framing, hovering stance and art style follow the attached image; the character, outfit and colors are entirely different, as described below. Do not copy the wings of the attached image; draw the wings exactly as described in the text.` (가이드 규칙 8. 날개 문장은 2026-11-12 에이다 1차에서 날개 모양이 주인공 것을 따라가 추가). 동료별 IDENTITY_BACK/OUTFIT_BACK은 백뷰 생성 시 작성하고, 아래 POSE_BATTLE_BACK도 그때 대기 자세(공중 제자리, 오른쪽 위 주시)로 다시 쓴다.
+- `battle_back`: 가이드 1.1.1 동료 5블록 조합 (LAYER_BACK_HEAD + VIEW_BATTLE_BACK_PARTNER → POSE_BATTLE_BACK(무기 포함) → IDENTITY_BACK → OUTFIT_BACK(무기 제외) → PALETTE + STYLE_BASE_BACK + LAYER_BACK_TAIL, FACE 없음). 첨부 없음 (2026-11-12 갱신, 가이드 규칙 8·12). 동료별 IDENTITY_BACK/OUTFIT_BACK/POSE_BATTLE_BACK은 백뷰 생성 시 이 구조로 작성한다. 카스미 블록이 기준 예시이며, 에이다 블록은 첨부 방식 당시의 것이라 재생성 시 다시 쓴다. 그 외 동료의 POSE_BATTLE_BACK은 옛 서 있는 자세이므로 쓰지 않는다.
+  - (이전 첨부 방식 지시문, 기록용) 첨부 `assets/characters/fairy/fairy_battle_back.png` + `Match the art style and composition of the attached image (a different character). Only the camera angle, framing, hovering stance and art style follow the attached image; the character, outfit and colors are entirely different, as described below. Do not copy the wings of the attached image; draw the wings exactly as described in the text.`
+- `battle_back`의 무기 파지법(정방향/역수 등)·세부 자세는 `cutin`과 일치하지 않아도 된다. 시점이 달라 이미 비교가 어렵기 때문에, 자연스럽기만 하면 결과대로 채택한다 (2026-11-12 사용자 결정, 카스미 닌자도 역수 생성 건).
 - FACE는 캐릭터별 블록에 적힌 종류를 쓴다. 비요른은 FACE 없이 조합한다. `battle_back`은 얼굴이 보이지 않아야 하므로 전원 FACE 없이 조합한다 (2026-11-11 추가).
 
 **FACE_FEMALE** (여성 동료 공통)
@@ -74,17 +76,17 @@ Color palette: deep violet, black, silver, lavender.
 ```
 Pose: lunging forward low toward the viewer with the ninjato held in a forward grip slashing out, the other hand flicking a kunai, ponytail and long obi tail sweeping.
 ```
-**IDENTITY_BACK** (전투 백뷰 전용, 2026-11-12 추가. 눈·미소·앞머리 브릿지 삭제)
+**POSE_BATTLE_BACK** (2026-11-12 2차 갱신, 5블록 구조의 Block 2. `battle_back_kasumi.png` 2차 확정 프롬프트 기준. 닌자도는 결과에서 역수로 생성되었으나 규칙상 그대로 채택)
 ```
-Her back is toward the viewer; only the back of her head and her high ponytail are visible. A lean and agile female fairy, a young adult in her early twenties, 7 heads tall, seen from behind. Long pointed elf ear tips poking out from both sides of the back of her head. Black hair tied in a long high ponytail with a violet hair tie, several violet streaks running through the ponytail, the ponytail swinging behind her. Four large deep violet moth wings with dark eyespot patterns and silver-dusted edges, growing from her upper back between the shoulder blades, spread wide and caught mid-beat.
+Pose: tightly compressed mid-air ready stance, locked onto a distant opponent in the upper right. Torso aggressively leaning forward and slightly twisted. Right hand securely gripping a short straight ninjato (violet-wrapped grip, square guard) in a forward grip low at her right side, blade angled sharply forward toward the opponent. Left hand raised high near her left shoulder, tightly holding a single kunai ready to throw. Knees drawn up tightly beneath her torso, legs compressed like a loaded spring while hovering in mid-air. Wings held wide and steady in a powerful hovering beat. Ponytail and long obi tails swaying with intense kinetic tension.
 ```
-**OUTFIT_BACK** (전투 백뷰 전용, 2026-11-12 추가. 쿠사리 망사·오비 앞 끈·오비의 쿠나이 삭제, 마스크는 `face` 단어 없이 목 천으로 표기)
+**IDENTITY_BACK** (전투 백뷰 전용, 2026-11-12 2차 갱신. 눈·미소·앞머리 브릿지 삭제, 움직임 표현은 POSE로 이동)
 ```
-Wearing a fantasy-adapted Japanese kunoichi (female ninja) outfit seen from the back: the back of a short sleeveless dark violet kimono-style wrap top with lavender trim leaving her shoulders bare, a lavender cloth scarf wrapped around her neck with its knot at the side, detached dark violet kimono sleeves tied with lavender ribbon bows at the upper arms and wrists, a black obi sash around her waist with a large black bow knot at the back and long tattered black obi tails flowing down from the back of her waist, a very short dark violet pleated hakama-style skirt with lavender trim, black tekko arm guards with silver plates over black fingerless gloves, black thigh-high stockings with knee-high black kyahan shin guards with silver plates and black split-toe tabi boots seen from behind. Weapons: a short straight ninjato with a violet-wrapped grip and a square guard, and a kunai. No cape or cloak on the shoulders, wings fully visible.
+A lean and agile female fairy, young adult, 7 heads tall, seen from behind. Back of her head and high ponytail are clearly visible, head pointing toward the upper right. Long pointed elf ear tips poking out. Black hair tied in a long high ponytail with a violet hair tie, several violet streaks running through the ponytail. Four large deep violet moth wings with dark eyespot patterns and silver-dusted edges, growing from her upper back between the shoulder blades.
 ```
-**POSE_BATTLE_BACK** (2026-11-12 갱신. 첨부 방식에서는 웅크린 자세가 반영되지 않고 기준 백뷰의 자세를 따름)
+**OUTFIT_BACK** (전투 백뷰 전용, 2026-11-12 2차 갱신. 무기·망토 부정문 삭제(가이드 규칙 12), 결과에서 생성된 등의 X자 끈 고정)
 ```
-Pose: poised battle-ready stance while hovering in place in mid-air, not attacking yet, calmly watching the distant opponent in the upper right, body in a slight low crouch leaning forward, right hand holding the ninjato in a forward grip low at her side with the blade angled toward the opponent, left hand holding a kunai ready near her hip, knees bent with legs hanging below her, wings beating steadily to hover, ponytail and long obi tails swaying gently.
+Wearing a fantasy-adapted Japanese kunoichi outfit seen from the back: short sleeveless dark violet kimono-style wrap top with lavender trim leaving her shoulders bare, crossed lavender tasuki cords forming an X across her back. Lavender cloth scarf wrapped around her neck with its knot at the side. Detached dark violet kimono sleeves tied with lavender ribbon bows at the upper arms and wrists. Black obi sash around her waist with a large black bow knot at the back, long tattered black obi tails hanging down. Very short dark violet pleated hakama-style skirt with lavender trim. Black tekko arm guards with silver plates over black fingerless gloves. Black thigh-high stockings, knee-high black kyahan shin guards with silver plates, and black split-toe tabi boots seen from behind.
 ```
 
 ### 3.2 에이다 (`ada`) - 시간술사 / 빅토리아 시대 시계 장인

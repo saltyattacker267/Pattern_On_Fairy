@@ -14,9 +14,17 @@
 - `[FACE]`는 동료 캐릭터 시트(`docs/art_prompts/partners.md` 3장)의 FACE 블록을 쓴다. 주인공은 IDENTITY에 얼굴 묘사가 포함되어 있고, 몬스터/보스와 장년 컨셉 동료는 생략한다. `VIEW_BATTLE_BACK` 에셋은 얼굴이 보이지 않아야 하므로 FACE 블록을 넣지 않는다 (2026-11-11 추가: FACE 블록이 고개를 돌려 얼굴을 보이게 만드는 원인으로 판단).
 
 ### 1.1.1 전투 백뷰 스프라이트 (`--rembg` 사용, 2026-11-12 추가)
+- 주인공 기준 백뷰 (`fairy_battle_back.png` v3, 확정 당시 조합. 재생성하지 않으며 기록용):
 ```
 [LAYER_SPRITE_HEAD] + [VIEW_BATTLE_BACK] + [캐릭터 IDENTITY_BACK] + [캐릭터 OUTFIT_BACK] + [POSE_BATTLE_BACK] + [PALETTE] + [STYLE_BASE_BACK] + [LAYER_SPRITE_TAIL]
 ```
+- 동료 백뷰 (2026-11-12 갱신, 5블록 구조, 첨부 없음):
+```
+[Block 1: LAYER_BACK_HEAD + VIEW_BATTLE_BACK_PARTNER] + [Block 2: POSE_BATTLE_BACK (무기 포함)] + [Block 3: IDENTITY_BACK] + [Block 4: OUTFIT_BACK (무기 제외)] + [Block 5: PALETTE + STYLE_BASE_BACK + LAYER_BACK_TAIL]
+```
+  - 이미지 모델은 앞부분에 가중치를 두므로 자세(Block 2)를 외형·의상보다 앞에 둔다. 자세를 뒤에 둔 기존 조합에서는 자세 지시가 계속 무시되었고, 앞으로 옮기자 반영되었다 (2026-11-12 `battle_back_kasumi.png` 2차).
+  - 무기는 OUTFIT_BACK에 따로 선언하지 않고 Block 2에서 쥐고 있는 손과 한 문장으로 묘사한다 (예: `Right hand gripping a short straight ninjato (violet-wrapped grip, square guard) ...`).
+  - 작성 원칙과 생성 전 점검은 규칙 12를 따른다.
 - `[FACE]`는 넣지 않는다. IDENTITY_BACK/OUTFIT_BACK은 일반 IDENTITY/OUTFIT에서 **뒤에서 보이지 않는 요소(눈, 표정, 볼, 앞머리, 가슴 장식, 앞쪽 매듭/끈 등)를 삭제**하고 뒷면 요소(뒤통수, 머리끈, 귀끝, 날개 뿌리, 등·허리 뒤 장식)만 남긴 백뷰 전용 블록이다.
 - 생성 모델은 문맥보다 명사에 반응하므로 `face`, `eyes`, `smile`, `expression`, `bangs` 등의 단어는 부정문(`not visible` 등)으로도 쓰지 않는다. 대신 "보이는 것만" 긍정형으로 쓴다 (예: `only the back of her head, her hat and her ponytail are visible`).
 
@@ -32,7 +40,7 @@
 | `lobby_fairy_idle_A/B/C.png` | 로비 일상 모션 | VIEW_ILLUST | IDENTITY, OUTFIT_BASE | POSE_IDLE_A/B/C |
 | `fairy_costume_1~6.png` | 캐릭터 일러스트 | VIEW_ILLUST | IDENTITY | OUTFIT (코스튬별), POSE |
 | `fairy_battle_back.png` | 전투 (2.5D 백뷰, 기준 백뷰) | VIEW_BATTLE_BACK | IDENTITY_BACK, OUTFIT_BACK, STYLE_BASE_BACK | POSE_BATTLE_BACK |
-| `battle_back_[동료영문명].png` | 전투 (2.5D 백뷰) | VIEW_BATTLE_BACK | 동료 IDENTITY_BACK, OUTFIT_BACK, STYLE_BASE_BACK | POSE_BATTLE_BACK |
+| `battle_back_[동료영문명].png` | 전투 (2.5D 백뷰) | VIEW_BATTLE_BACK_PARTNER | 동료 IDENTITY_BACK, OUTFIT_BACK, STYLE_BASE_BACK | POSE_BATTLE_BACK (동료별 고유 준비 자세) |
 | `monster_[아이디]_form_[A~C].png` | 몬스터 필드 | VIEW_MONSTER | 몬스터 IDENTITY | 노드 궤적 기반 POSE |
 | `boss_N_phase_1~3.png` | 보스 필드 | VIEW_MONSTER | 보스 IDENTITY | 페이즈별 변화 묘사 |
 | `bg_stage_N.png` | 스테이지 배경 | - | STYLE_BASE | 지역별 장면 묘사 |
@@ -73,6 +81,13 @@ Full body character illustration, entire figure inside the frame from head to fe
   - 비율을 지정하지 않으면 가로형(2752×1536)으로 생성되어 여백이 많으므로 세로 3:4를 명시한다.
   - 모든 백뷰는 오른쪽 위를 향하게 생성한다 (오른쪽 슬롯 동료의 좌우 반전 렌더링 여부는 코드 작업 시 결정).
   - 2026-11-11 보강: `battle_back_kasumi.png` 1차 시험에서 몸은 오른쪽을 향하고 고개는 어깨 너머로 돌려 옆얼굴이 보이는 구도로 생성됨 → 몸·머리 방향 일치와 얼굴 비노출 문장 추가. 2차에서 얼굴은 가려졌으나 몸이 오른쪽 위 대각선을 향함 → `Rear three-quarter back view`를 `Rear back view`로 바꾸고 몸·머리를 화면 위쪽으로 곧게 향하게 하는 문장으로 교체. 3차에서 방향은 맞았으나 몸통·팔이 날개 위에 그려져 날개가 가슴 쪽에 달린 정면 구도의 앞뒤 관계가 됨 → 날개가 견갑골 사이에서 나와 등 위(보는 사람 쪽)에 겹쳐 그려지도록 하는 문장 추가. (2026-11-12: 이 시험 블록은 위 블록으로 대체됨. 규칙 8 참조)
+- **VIEW_BATTLE_BACK_PARTNER** (동료 백뷰 전용, 2026-11-12 추가)
+  ```
+  Low-angle from behind and slightly to her left, rear back view.
+  ```
+  - 카메라 시점을 한 문장으로 확정한다. 기존 VIEW_BATTLE_BACK은 `Rear three-quarter`, `camera directly behind`, 몸 방향(`angled toward upper right`)을 한 블록에 섞어 시점이 모순되었고, 측면 구도·옆얼굴 노출의 원인으로 판단했다. 몸이 향하는 방향(오른쪽 위의 적)은 Block 2 자세 문장에서 지정한다.
+  - 남성 동료는 `her`를 `his`로 바꾼다.
+  - 기존 규정은 낮은 앵글을 피했으나(위 VIEW_BATTLE_BACK 참고), 이 블록으로 생성한 카스미 2차에서 밑창·턱 노출 문제가 없어 채택했다. 문제가 생기면 `Eye-level from behind`로 바꾼다.
 - **VIEW_MONSTER** (몬스터/보스, 3×3 노드 앵커 매핑용)
   ```
   Orthographic 2D front view, facing the viewer directly, symmetrical framing.
@@ -82,6 +97,15 @@ Full body character illustration, entire figure inside the frame from head to fe
 ```
 isolated on solid white background
 ```
+
+### LAYER_BACK_HEAD / LAYER_BACK_TAIL (동료 백뷰 전용 앞·끝부분, 2026-11-12 추가)
+```
+Full body character illustration, vertical 3:4 portrait composition, entire figure inside the frame from head to feet, centered, isolated on solid white background.
+```
+```
+No text, no letters, no watermark, no borders, no ground shadow, no background effects.
+```
+- LAYER_SPRITE_HEAD/TAIL과 내용은 같고 순서만 다르다. 흰 배경 문장을 앞으로, 화면 구성 금지 문장을 끝으로 옮겼다. 금지 문장은 Gemini 웹에 네거티브 입력란이 없어 남겨 두며, 지금까지 문제를 일으킨 적이 없다.
 
 ### LAYER_BG_HEAD (배경 앞부분)
 ```
@@ -133,17 +157,32 @@ Subtle canvas and aged paper grain texture.
 8. **백뷰 에셋 생성 (2026-11-12 갱신):** `VIEW_BATTLE_BACK` 에셋은 얼굴이 보이지 않으므로 머리 색/포니테일, 모자, 허리 반망토, 날개 등 뒷모습에서 보이는 요소로 캐릭터를 식별한다. 조합은 1.1.1을 따른다.
    - **정면 이미지 첨부 금지:** 정면 일러스트(`fairy_base.png`, 동료 `cutin`)를 첨부하면 Gemini가 원본을 편집하는 방식으로 처리하여 몸은 정면 그대로 두고 고개만 돌린다 (규칙 11과 같은 현상). 텍스트에서 정면 묘사를 지워도 해결되지 않았다.
    - **기준 백뷰:** 주인공 백뷰 `assets/characters/fairy/fairy_battle_back.png`는 첨부 없이 텍스트로만 생성하여 확정했다. 이후 백뷰의 구도·화풍 통일을 위한 기준 백뷰로 쓴다.
-   - **동료 백뷰:** `fairy_battle_back.png` 첨부 + 지시문(`partners.md` 3장 `battle_back` 항목) + 동료 백뷰 블록으로 생성한다. 2026-11-12 카스미에서 검증: 주인공의 색·의상은 번지지 않았고, 텍스트 전용 생성보다 품질이 좋아 첨부 방식을 채택했다. 단 **자세가 기준 백뷰를 거의 그대로 따른다** (POSE의 웅크림 등 개별 자세 지시가 반영되지 않음). 캐릭터별 자세 차별화는 추후 과제로 둔다. 색이 번지는 동료가 나오면 `recolor ... (not ...)` 지시를 추가한다. 날개 모양이 기준 백뷰(길쭉한 잠자리형)와 다른 동료는 기준 백뷰의 날개 모양을 따라가므로, 지시문에 규칙 1의 날개 문장을 붙이고 날개 형태를 구체적으로 쓴다 (2026-11-12 에이다에서 확인).
-   - **자세:** 전투 백뷰는 공격 전 대기 상태 일러스트다. 공격 동작(돌진, 찌르기)이 아니라 공중에 떠서 적을 주시하는 준비 자세로 쓴다.
+   - **동료 백뷰 (2026-11-12 갱신):** 첨부 없이 1.1.1 동료 5블록 구조의 텍스트로만 생성한다. 주인공 백뷰는 여유로운 대기 자세를 유지하는 예외로 두고, 동료는 각자 고유한 역동적 준비 자세로 차별화한다 (사용자 결정).
+     - 이전 방식(`fairy_battle_back.png` 첨부 + 구도·화풍만 따르라는 지시문)은 색·의상 번짐 없이 각도·크기가 통일되었으나, 자세가 기준 백뷰를 그대로 따랐다. `Do not copy the pose` 문장 추가, 같은 채팅에서 자세만 고치는 2단계 편집 모두 실패했다(편집은 다리만 바뀜). 날개 모양도 기준 백뷰를 따라가 별도 문장이 필요했다(에이다 1차). 이 방식으로 확정한 `battle_back_ada.png`는 재생성 대상이다.
+     - 텍스트 전용은 처음(카스미, 자세를 뒤에 둔 옛 조합)에는 품질이 낮아 미채택했으나, 5블록 구조에서는 첨부 방식과 대등한 품질이 나왔다.
+     - 텍스트 전용이라 캐릭터 크기가 동료마다 다를 수 있다. 렌더링 배율로 맞춘다.
+   - **자세:** 전투 백뷰는 공격 명령이 내려오기 전의 준비 상태다. 이미 움직이는 동작(돌진, 베기, 휘두르기)이 아니라, 몸은 멈춰 있지만 근육이 압축되어 언제든 튀어나갈 수 있는 정지된 긴장 상태로 쓴다 (2026-11-12 사용자 정의). 주인공 백뷰만 여유로운 대기 자세다.
 9. **모션은 단일 대표 자세로 생성:** 프로토타입은 모션당 이미지 1장 + Canvas 절차적 모션으로 구현한다(기획서 1.3). 프레임 연속 이미지를 만들지 않고, 정지 상태에서도 동작이 한눈에 읽히는 대표 자세 1장으로 생성한다.
 10. **날개 캐릭터 망토 금지:** 날개가 있는 캐릭터(주인공, 동료 등)는 어깨나 목에서 늘어져 등 위쪽(날개 뿌리)을 덮는 망토/클로크/케이프를 착용하지 않는다. 날개 뿌리와 겹쳐 설정상 어색하고, 백뷰에서 날개와 망토가 서로를 가려 식별성이 떨어진다.
    - 휘날리는 천이 필요하면 대체 수단을 쓴다: 허리 반망토(허리 뒤에서 흘러내리는 천), 코트 자락, 스카프/리본/장식끈, 몸에 맞는 로브.
    - 망토 같은 실루엣이 필요한 컨셉은 별도 망토 대신 **날개로 표현**한다 (예: 카밀라의 박쥐 막날개를 어깨에 망토처럼 두름). 불투명한 막날개처럼 천으로 읽힐 수 있는 날개에만 사용한다. 단, 2026-11-10 카밀라 생성에서 "날개를 어깨에 망토처럼 두름" 지시가 2회 연속 반영되지 않고 날개가 등 뒤로 펼쳐졌다. 생성 모델이 잘 따르지 않는 지시이므로 기대하지 않는다.
-   - 날개 캐릭터의 OUTFIT 블록 끝에는 `No cape or cloak on the shoulders, wings fully visible.`를 포함한다.
+   - 날개 캐릭터의 OUTFIT 블록 끝에는 `No cape or cloak on the shoulders, wings fully visible.`를 포함한다. 단 동료 OUTFIT_BACK은 규칙 12에 따라 부정문을 쓰지 않으며, 등 위쪽을 덮을 소지가 있는 의상(털 조끼, 베일 등)만 `upper back left clear around the wing roots, wings fully visible`처럼 긍정문으로 쓴다.
    - 캐릭터 시트의 "등 처리" 칸에 캐릭터별 처리 방식을 명시하고, 프롬프트 작성 후 `cape`/`cloak` 키워드를 검색해 허용된 표현(허리 반망토, 날개 망토, 금지 문장) 외에 남아 있지 않은지 확인한다.
    - 날개가 없는 몬스터/보스에는 적용하지 않는다.
 11. **첨부 이미지 색 우선 현상:** 기준 이미지를 첨부하면 첨부 이미지의 색이 텍스트 프롬프트의 색 지정보다 우선한다. 기준 이미지와 다른 색을 원하면 지시문에 `recolor <부위> to <색> (not <기존 색>)` 형태로 변경 사항을 명시한다.
    - 그림체와 조명도 같다. 첨부 이미지가 있으면 Gemini는 원본을 편집하는 방식으로 처리하여, 화풍 변경·그림자 강화 지시는 거의 반영되지 않는다 (2026-11-04 검증). 화풍 자체를 바꾸려면 첨부 없이 텍스트로만 생성한다.
+12. **동료 백뷰 자세 프롬프트 작성 원칙 (2026-11-12 추가):** 사용자가 외부 AI로 정리한 전투 준비 자세 매뉴얼을 Gemini 환경에 맞게 반영했다.
+   - **장면을 끌고 오는 비유 금지:** `like a sprinter`, `starting signal`, `explode` 등 다른 장면·직업·사건을 떠올리게 하는 비유는 쓰지 않는다 (육상 트랙, 폭발 이펙트가 생성될 위험). 근육의 긴장, 관절 각도, 무게 중심 같은 물리 상태로 쓴다. 물리 상태를 설명하는 비유(`legs compressed like a loaded spring`)는 허용한다.
+   - **카메라 시점은 하나로:** 시점은 Block 1에서 한 문장으로 확정하고(VIEW_BATTLE_BACK_PARTNER), 그 시점에서 보이는 부위만 묘사한다.
+   - **무기는 손과 결합:** 무기 디자인을 별도 문장(`Weapons: ...`)으로 두지 않고, 쥐고 있는 손 동작 문장 안에 넣는다.
+   - **가림 현상에 물리적 근거:** 뒤쪽 요소를 보여주려면 가리는 천에 이유를 준다(`parted in the middle`, 바람에 휘날림 등). 덮는다고 쓴 부위의 세부를 따로 묘사하지 않는다.
+   - **부정어 최소화:** Gemini 웹에는 네거티브 입력란이 없으므로, 부정문은 분리하는 대신 긍정문으로 바꾼다 (`not attacking yet` → 현재 하고 있는 동작만 서술). 화면 구성 금지 문장(LAYER_BACK_TAIL)은 예외로 유지한다.
+   - **생성 전 점검 (QA):**
+     - [ ] 장면을 끌고 오는 비유나 직업명(선수, 스나이퍼 등)이 없는가?
+     - [ ] 무기 묘사가 쥐고 있는 손의 동작과 한 문장으로 결합되어 있는가?
+     - [ ] LAYER_BACK_TAIL 외에 `no`, `not`, `without`이 없는가?
+     - [ ] 머리카락·천·날개의 흔들림 정도가 자세의 긴장 상태와 일치하는가? (정지된 긴장 = 가벼운 흔들림, 격렬한 휘날림은 이미 움직이는 동작으로 읽힘)
+     - [ ] `face`, `eyes`, `smile` 등 얼굴 관련 단어가 없는가? (1.1.1)
 
 ---
 
